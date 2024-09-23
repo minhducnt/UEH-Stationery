@@ -1,0 +1,250 @@
+-- Tạo database
+CREATE SCHEMA `uehstationery` ;
+
+-- Tạo bảng SanPham
+CREATE TABLE SanPham(
+   MaSP        VARCHAR(4) NOT NULL PRIMARY KEY
+  ,TenSP       NVARCHAR(30) NOT NULL
+  ,Maloai      VARCHAR(2) NOT NULL
+  ,Giagoc     FLOAT NOT NULL
+  ,Giaban     FLOAT NOT NULL
+  ,GiaKM      FLOAT
+  ,MaKM        VARCHAR(3)
+  ,Mota        NVARCHAR(250) NOT NULL
+  ,TinhtrangTK NVARCHAR(8) NOT NULL
+  ,HotTrend    BIT  NOT NULL
+  ,BestSeller  BIT  NOT NULL
+  ,IsClick     BOOLEAN  NOT NULL
+  ,IsLike      BOOLEAN  NOT NULL
+  ,Hinhanh     VARCHAR(8) NOT NULL
+  ,Ngaycapnhat DATE  NOT NULL
+);
+
+-- Insert dữ liệu vào bảng SanPham
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP1',N'Sách Kinh tế vi mô','L1',80000,90000,NULL,NULL,N'Sách chuyên ngành kinh tế vi mô cung cấp kiến thức cơ bản về cách các cá nhân, hộ gia đình và doanh nghiệp ra quyết định trong việc phân bổ nguồn lực. Nội dung bao gồm phân tích thị trường, cung cầu, và hành vi của người tiêu dùng và nhà sản xuất.',N'Còn hàng',0,0,TRUE,TRUE,'SP1.jpg','2024-5-10');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP2',N'Sách Kinh tế vĩ mô','L1',45000,50000,NULL,NULL,N'Sách về kinh tế vĩ mô tập trung vào việc nghiên cứu các hiện tượng kinh tế tổng thể như lạm phát, thất nghiệp, tăng trưởng kinh tế và chính sách tài khóa, tiền tệ. Đây là tài liệu quan trọng cho sinh viên và nhà nghiên cứu trong lĩnh vực kinh tế.',N'Còn hàng',1,0,FALSE,TRUE,'SP2.jpg','2024-5-11');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP3',N'Sách Toán cao cấp','L1',45000,60000,NULL,NULL,N'Sách toán cao cấp là nguồn tài liệu chuyên sâu cho sinh viên và người học, bao gồm các chủ đề như giải tích, đại số tuyến tính, vi phân và tích phân. Đây là tài liệu hỗ trợ quan trọng cho các ngành khoa học tự nhiên, kỹ thuật, và kinh tế.',N'Còn hàng',1,0,FALSE,FALSE,'SP3.jpg','2024-5-12');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP4',N'Máy Tính Casio FX-570ES PLUS','L2',430000,450000,405000,'KM3',N'Máy tính khoa học phổ biến với tính năng tính toán nâng cao, hỗ trợ lên đến 417 chức năng bao gồm các phép toán thống kê, lượng giác, và giải phương trình.',N'Còn hàng',0,0,TRUE,TRUE,'SP4.jpg','2024-5-13');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP5',N'Máy Tính Casio FX-580VN X','L2',285000,350000,315000,'KM3',N'Phiên bản nâng cấp của dòng máy tính Casio, hỗ trợ 521 chức năng và có khả năng giải nhanh các bài toán phức tạp.',N'Còn hàng',0,0,TRUE,TRUE,'SP5.jpg','2024-5-14');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP6',N'Bút bi Thiên Long TL-095','L3',6000,8000,NULL,NULL,N'Bút bi Thiên Long TL-095 có thiết kế hiện đại, thân bút thanh mảnh, mực viết trơn tru và lâu phai. Phù hợp cho các công việc ghi chép hàng ngày tại văn phòng và trường học.',N'Còn hàng',1,1,TRUE,FALSE,'SP6.jpg','2024-5-15');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP7',N'Bút dạ quang ERAS E175','L3',6000,8000,NULL,NULL,N'Bút dạ quang ERAS E175 có màu sắc tươi sáng, phù hợp để đánh dấu các điểm quan trọng trên tài liệu, sách vở. Đầu bút mềm mại giúp tô sáng đều, không gây nhòe mực.',N'Còn hàng',1,1,TRUE,FALSE,'SP7.png','2024-5-16');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP8',N'Bút bi Double A TriTouch','L3',3000,4000,NULL,NULL,N'Bút bi Double A TriTouch mang lại trải nghiệm viết êm ái với đầu bút mượt mà và mực khô nhanh. Thiết kế thân bút thoải mái khi cầm nắm, phù hợp cho việc sử dụng lâu dài trong học tập và làm việc.',N'Hết hàng',0,0,FALSE,FALSE,'SP8.png','2024-5-17');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP9',N'Sổ bìa da nút cài','L4',40000,58000,NULL,NULL,N'Sổ bìa da cao cấp với thiết kế sang trọng, bền bỉ, đi kèm nút cài chắc chắn giúp bảo vệ tốt các trang giấy bên trong.',N'Hết hàng',1,0,TRUE,TRUE,'SP9.png','2024-5-18');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP10',N'Sổ caro','L4',100000,120000,NULL,NULL,N'Sổ có giấy kẻ caro, thường được sử dụng trong các môn học liên quan đến toán học, kỹ thuật, và vẽ kỹ thuật.',N'Hết hàng',0,1,FALSE,FALSE,'SP10.png','2024-5-19');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP11',N'Dây đeo thẻ','L5',35000,50000,NULL,NULL,N'Dây đeo thẻ chất liệu vải bền, có thể tùy chỉnh độ dài, thường dùng để đeo thẻ nhân viên, thẻ sinh viên hoặc các loại thẻ ra vào.',N'Còn hàng',1,0,FALSE,FALSE,'SP11.png','2024-5-20');
+INSERT INTO SanPham(MaSP,TenSP,Maloai,Giagoc,Giaban,GiaKM,MaKM,Mota,TinhtrangTK,HotTrend,BestSeller,IsClick,IsLike,Hinhanh,Ngaycapnhat) VALUES ('SP12',N'Balo UEH','L5',375000,400000,NULL,NULL,N'Balo mang thương hiệu UEH với thiết kế hiện đại và tiện dụng. Balo có nhiều ngăn để chứa laptop, sách vở và các vật dụng cá nhân, phù hợp cho sinh viên sử dụng hàng ngày, giúp bảo vệ tốt các thiết bị và tài liệu khi di chuyển.',N'Còn hàng',0,0,FALSE,TRUE,'SP12.png','2024-5-21');
+
+-- Tạo bảng Admin
+CREATE TABLE Admin(
+   MaAD  VARCHAR(3) NOT NULL PRIMARY KEY
+  ,MaTK  VARCHAR(3) NOT NULL
+  ,TenAD NVARCHAR(50) NOT NULL
+  ,Email VARCHAR(20) NOT NULL
+);
+
+-- Insert dữ liệu vào bảng Admin
+INSERT INTO Admin(MaAD,MaTK,TenAD,Email) VALUES ('AD1','TK1',N'Võ Thị Bích Ngọc','admin1@gmail.com');
+INSERT INTO Admin(MaAD,MaTK,TenAD,Email) VALUES ('AD2','TK2',N'Phan Trần Uyên Nhi','admin2@gmail.com');
+INSERT INTO Admin(MaAD,MaTK,TenAD,Email) VALUES ('AD3','TK3',N'Phạm Hoàng Nhi','admin3@gmail.com');
+
+-- Tạo bảng ChiTietDonHang
+CREATE TABLE ChiTietDonHang(
+   MaCTHD VARCHAR(4) NOT NULL PRIMARY KEY
+  ,MaHD   VARCHAR(3) NOT NULL
+  ,MaSP   VARCHAR(4) NOT NULL
+  ,SLuong INTEGER  NOT NULL
+);
+
+-- Insert dữ liệu vào bảng ChiTietDonHang
+INSERT INTO ChiTietDonHang(MaCTHD,MaHD,MaSP,SLuong) VALUES ('CH1','HD1','SP1',1);
+INSERT INTO ChiTietDonHang(MaCTHD,MaHD,MaSP,SLuong) VALUES ('CH2','HD1','SP2',2);
+INSERT INTO ChiTietDonHang(MaCTHD,MaHD,MaSP,SLuong) VALUES ('CH3','HD1','SP3',1);
+INSERT INTO ChiTietDonHang(MaCTHD,MaHD,MaSP,SLuong) VALUES ('CH4','HD2','SP4',1);
+INSERT INTO ChiTietDonHang(MaCTHD,MaHD,MaSP,SLuong) VALUES ('CH5','HD2','SP5',2);
+INSERT INTO ChiTietDonHang(MaCTHD,MaHD,MaSP,SLuong) VALUES ('CH6','HD3','SP6',1);
+INSERT INTO ChiTietDonHang(MaCTHD,MaHD,MaSP,SLuong) VALUES ('CH7','HD3','SP7',1);
+INSERT INTO ChiTietDonHang(MaCTHD,MaHD,MaSP,SLuong) VALUES ('CH8','HD4','SP8',2);
+INSERT INTO ChiTietDonHang(MaCTHD,MaHD,MaSP,SLuong) VALUES ('CH9','HD5','SP9',1);
+INSERT INTO ChiTietDonHang(MaCTHD,MaHD,MaSP,SLuong) VALUES ('CH10','HD5','SP10',1);
+
+-- Tạo bảng ChiTietGioHang
+CREATE TABLE ChiTietGioHang(
+   MaCTGH    VARCHAR(3) NOT NULL PRIMARY KEY
+  ,MaGH      VARCHAR(3) NOT NULL
+  ,MaSP      VARCHAR(4) NOT NULL
+  ,SoLuong   INTEGER  NOT NULL
+  ,Thanhtien	FLOAT NOT NULL
+);
+
+-- Insert dữ liệu vào bảng ChiTietGioHang
+INSERT INTO ChiTietGioHang(MaCTGH,MaGH,MaSP,SoLuong,Thanhtien) VALUES ('CG1','GH1','SP11',1,50000);
+INSERT INTO ChiTietGioHang(MaCTGH,MaGH,MaSP,SoLuong,Thanhtien) VALUES ('CG2','GH1','SP8',2,8000);
+INSERT INTO ChiTietGioHang(MaCTGH,MaGH,MaSP,SoLuong,Thanhtien) VALUES ('CG3','GH1','SP9',3,174000);
+INSERT INTO ChiTietGioHang(MaCTGH,MaGH,MaSP,SoLuong,Thanhtien) VALUES ('CG4','GH2','SP12',2,800000);
+INSERT INTO ChiTietGioHang(MaCTGH,MaGH,MaSP,SoLuong,Thanhtien) VALUES ('CG5','GH2','SP1',1,90000);
+INSERT INTO ChiTietGioHang(MaCTGH,MaGH,MaSP,SoLuong,Thanhtien) VALUES ('CG6','GH3','SP2',3,150000);
+INSERT INTO ChiTietGioHang(MaCTGH,MaGH,MaSP,SoLuong,Thanhtien) VALUES ('CG7','GH3','SP6',1,8000);
+
+-- Tạo bảng DanhGia
+CREATE TABLE DanhGia(
+   MaDG     VARCHAR(4) NOT NULL PRIMARY KEY
+  ,MaTV     VARCHAR(3) NOT NULL
+  ,MaSP     VARCHAR(4) NOT NULL
+  ,DiemDG   INTEGER  NOT NULL check (DiemDG >= 1 and DiemDG <= 5)
+  ,Binhluan NVARCHAR(200)
+);
+-- Insert dữ liệu vào bảng DanhGia
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG1','TV1','SP1',4,N'Sản phẩm khá tốt, giao hàng nhanh nhưng vẫn cần cải thiện bao bì');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG2','TV2','SP2',3,N'Chất lượng trung bình, chưa thực sự đáp ứng được kỳ vọng');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG3','TV3','SP3',5,N'Hoàn hảo! Chất lượng vượt xa mong đợi, rất đáng đồng tiền');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG4','TV4','SP4',4,N'Dùng ổn định, nhưng giá hơi cao so với các sản phẩm cùng loại');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG5','TV1','SP5',1,N'Rất tệ, sản phẩm không như mô tả và dịch vụ khách hàng không hỗ trợ tốt');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG6','TV1','SP6',3,N'Tạm ổn, không có gì quá nổi bật nhưng cũng không quá tệ');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG7','TV2','SP7',5,N'Tuyệt vời! Sản phẩm và dịch vụ đều rất tốt, tôi sẽ giới thiệu cho người khác');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG8','TV3','SP8',5,N'Chất lượng tốt, giá hợp lý, rất hài lòng về sản phẩm này.');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG9','TV4','SP9',4,N'Sản phẩm ổn, giao hàng nhanh chóng nhưng cần cải thiện về khâu đóng gói');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG10','TV5','SP10',2,N'Không như mong đợi, sản phẩm có một số lỗi nhỏ, cần cải thiện thêm');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG11','TV1','SP11',4,N'Chất lượng tốt, dịch vụ khách hàng nhiệt tình. Tôi hài lòng');
+INSERT INTO DanhGia(MaDG,MaTV,MaSP,DiemDG,Binhluan) VALUES ('DG12','TV2','SP12',5,N'Sản phẩm xuất sắc, đúng như mô tả, rất đáng để mua');
+
+-- Tạo bảng DonHang
+CREATE TABLE DonHang(
+   MaHD      VARCHAR(3) NOT NULL PRIMARY KEY
+  ,Trigia   FLOAT NOT NULL
+  ,NgayHD    DATE  NOT NULL
+  ,MaTT      VARCHAR(3)
+  ,MaTV      VARCHAR(3) NOT NULL
+  ,MaKM      VARCHAR(3)
+  ,Trangthai NVARCHAR(50) NOT NULL
+);
+-- Insert dữ liệu vào bảng DonHang
+INSERT INTO DonHang(MaHD,Trigia,NgayHD,MaTT,MaTV,MaKM,Trangthai) VALUES ('HD1',250000,'2024-9-10','TT1','TV1','KM1',N'Đang xử lý');
+INSERT INTO DonHang(MaHD,Trigia,NgayHD,MaTT,MaTV,MaKM,Trangthai) VALUES ('HD2',1035000,'2024-9-11','TT2','TV2','KM2',N'Đang xử lý');
+INSERT INTO DonHang(MaHD,Trigia,NgayHD,MaTT,MaTV,MaKM,Trangthai) VALUES ('HD3',16000,'2024-9-12','TT3','TV3','KM1',N'Đã hoàn thành');
+INSERT INTO DonHang(MaHD,Trigia,NgayHD,MaTT,MaTV,MaKM,Trangthai) VALUES ('HD4',8000,'2024-9-13',NULL,'TV4',NULL,N'Đã hủy');
+INSERT INTO DonHang(MaHD,Trigia,NgayHD,MaTT,MaTV,MaKM,Trangthai) VALUES ('HD5',178000,'2024-9-14','TT4','TV5','KM5',N'Đã hoàn thành');
+
+-- Tạo bảng GioHang
+CREATE TABLE GioHang(
+   MaGH      VARCHAR(3) NOT NULL PRIMARY KEY
+  ,MaTV      VARCHAR(3) NOT NULL
+  ,Ngaytao   DATE  NOT NULL
+  ,Tong     FLOAT
+  ,TinhTrang BOOLEAN  NOT NULL
+);
+-- Insert dữ liệu vào bảng GioHang
+INSERT INTO GioHang(MaGH,MaTV,Ngaytao,Tong,TinhTrang) VALUES ('GH1','TV1','2024-9-5',232000,TRUE);
+INSERT INTO GioHang(MaGH,MaTV,Ngaytao,Tong,TinhTrang) VALUES ('GH2','TV2','2024-9-6',890000,TRUE);
+INSERT INTO GioHang(MaGH,MaTV,Ngaytao,Tong,TinhTrang) VALUES ('GH3','TV3','2024-9-7',158000,TRUE);
+INSERT INTO GioHang(MaGH,MaTV,Ngaytao,Tong,TinhTrang) VALUES ('GH4','TV4','2024-9-8',NULL,FALSE);
+INSERT INTO GioHang(MaGH,MaTV,Ngaytao,Tong,TinhTrang) VALUES ('GH5','TV5','2024-9-9',NULL,FALSE);
+
+-- Tạo bảng KhuyenMai
+CREATE TABLE KhuyenMai(
+   MaKM       VARCHAR(3) NOT NULL PRIMARY KEY
+  ,TenCT      NVARCHAR(150) NOT NULL
+  ,DieuKien   NVARCHAR(50) NOT NULL
+  ,PhamtramKM INTEGER  NOT NULL
+  ,NgayBD     DATE  NOT NULL
+  ,NgayKT     DATE  NOT NULL
+);
+-- Insert dữ liệu vào bảng KhuyenMai
+INSERT INTO KhuyenMai(MaKM,TenCT,DieuKien,PhamtramKM,NgayBD,NgayKT) VALUES ('KM1',N'Giảm giá 20% tổng giá trị đơn hàng cho thành viên hạng Vàng',N'Thành viên hạng Vàng',20,'2024-9-20','2024-10-20');
+INSERT INTO KhuyenMai(MaKM,TenCT,DieuKien,PhamtramKM,NgayBD,NgayKT) VALUES ('KM2',N'Giảm giá 10% tổng giá trị đơn hàng vào dịp 20/10',N'Giới tính nữ',10,'2024-10-18','2024-10-20');
+INSERT INTO KhuyenMai(MaKM,TenCT,DieuKien,PhamtramKM,NgayBD,NgayKT) VALUES ('KM3',N'Giảm giá 10% cho các loại máy tính',N'Sản phẩm thuộc loại máy tính',10,'2024-10-22','2024-11-22');
+INSERT INTO KhuyenMai(MaKM,TenCT,DieuKien,PhamtramKM,NgayBD,NgayKT) VALUES ('KM4',N'Giảm giá 15% cho đơn hàng có tổng giá trị từ 200.000đ',N'Trị giá đơn hàng từ 200.000đ',15,'2024-10-30','2024-11-9');
+INSERT INTO KhuyenMai(MaKM,TenCT,DieuKien,PhamtramKM,NgayBD,NgayKT) VALUES ('KM5',N'Flash tháng 11',N'Mua sản phẩm bất kỳ vào ngày 11/11',10,'2024-11-11','2024-11-11');
+
+-- Tạo bảng LoaiSanPham
+CREATE TABLE LoaiSanPham(
+   Maloai  VARCHAR(2) NOT NULL PRIMARY KEY
+  ,TenLoai NVARCHAR(50) NOT NULL
+  ,Mota    NVARCHAR(350) NOT NULL
+);
+-- Insert dữ liệu vào bảng LoaiSanPham
+INSERT INTO LoaiSanPham(Maloai,TenLoai,Mota) VALUES ('L1',N'Sách',N'Sách bao gồm nhiều thể loại như sách giáo khoa dùng cho sinh viên, sách tham khảo chuyên ngành phục vụ nghiên cứu và học tập. Ngoài ra, còn có sách về kỹ năng sống, quản lý và phát triển bản thân, cùng với các sách chuyên môn trong các lĩnh vực như kinh tế, công nghệ, khoa học, y học, lịch sử và nghệ thuật');
+INSERT INTO LoaiSanPham(Maloai,TenLoai,Mota) VALUES ('L2',N'Máy tính',N'Máy tính casio là một công cụ hữu ích giúp bạn giải quyết các phép tính nhanh chóng và dễ dàng. Cho phép bạn thực hiện các phép tính cơ bản như cộng, trừ, nhân, chia và cả các phép tính phức tạp hơn như căn bậc hai, phần trăm, lũy thừa, lượng giác');
+INSERT INTO LoaiSanPham(Maloai,TenLoai,Mota) VALUES ('L3',N'Bút',N'Hữu ích trong việc ghi chép, viết vẽ, sáng tạo nội dung, phù hợp với nhiều đối tượng.');
+INSERT INTO LoaiSanPham(Maloai,TenLoai,Mota) VALUES ('L4',N'Sổ tay',N'Sổ thuận tiện cho trang trí bullet jorunal và viết vẽ. Kích cỡ nhỏ gọn thuận tiện mang theo hàng ngày.');
+INSERT INTO LoaiSanPham(Maloai,TenLoai,Mota) VALUES ('L5',N'Phụ kiện',N'Phụ kiện để mang, dễ dàng sử dụng và phù hợp mọi lứa tuổi');
+
+-- Tạo bảng Role
+CREATE TABLE Role(
+   RoleID   INT  NOT NULL PRIMARY KEY 
+  ,RoleName NVARCHAR(30) NOT NULL
+);
+-- Insert dữ liệu vào bảng Role
+INSERT INTO Role(RoleID,RoleName) VALUES (0,N'Admin');
+INSERT INTO Role(RoleID,RoleName) VALUES (1,N'Thành viên');
+
+-- Tạo bảng TaiKhoan
+CREATE TABLE TaiKhoan(
+   MaTK        VARCHAR(3) NOT NULL PRIMARY KEY
+  ,TenDangNhap VARCHAR(20) NOT NULL
+  ,MatKhau     VARCHAR(255) NOT NULL
+  ,RoleID      INT  NOT NULL
+);
+-- Insert dữ liệu vào bảng TaiKhoan
+INSERT INTO TaiKhoan(MaTK,TenDangNhap,MatKhau,RoleID) VALUES ('TK1','username1','password1',0);
+INSERT INTO TaiKhoan(MaTK,TenDangNhap,MatKhau,RoleID) VALUES ('TK2','username2','password2',0);
+INSERT INTO TaiKhoan(MaTK,TenDangNhap,MatKhau,RoleID) VALUES ('TK3','username3','password3',0);
+INSERT INTO TaiKhoan(MaTK,TenDangNhap,MatKhau,RoleID) VALUES ('TK4','username4','password4',1);
+INSERT INTO TaiKhoan(MaTK,TenDangNhap,MatKhau,RoleID) VALUES ('TK5','username5','password5',1);
+INSERT INTO TaiKhoan(MaTK,TenDangNhap,MatKhau,RoleID) VALUES ('TK6','username6','password6',1);
+INSERT INTO TaiKhoan(MaTK,TenDangNhap,MatKhau,RoleID) VALUES ('TK7','username7','password7',1);
+INSERT INTO TaiKhoan(MaTK,TenDangNhap,MatKhau,RoleID) VALUES ('TK8','username8','password8',1);
+
+-- Tạo bảng ThanhToan
+CREATE TABLE ThanhToan(
+   MaTT         VARCHAR(3) NOT NULL PRIMARY KEY
+  ,Thanhtien   FLOAT
+  ,Phivanchuyen	FLOAT
+  ,Pttt         NVARCHAR(30)
+  ,TinhtrangTT  NVARCHAR(50)
+);
+-- Insert dữ liệu vào bảng ThanhToan
+INSERT INTO ThanhToan(MaTT,Thanhtien,Phivanchuyen,Pttt,TinhtrangTT) VALUES ('TT1',200000,30000,N'Ví Momo',N'Đã thanh toán');
+INSERT INTO ThanhToan(MaTT,Thanhtien,Phivanchuyen,Pttt,TinhtrangTT) VALUES ('TT2',931500,40000,N'Tiền mặt',N'Đã thanh toán');
+INSERT INTO ThanhToan(MaTT,Thanhtien,Phivanchuyen,Pttt,TinhtrangTT) VALUES ('TT3',12800,20000,N'Internet Banking',N'Đã thanh toán');
+INSERT INTO ThanhToan(MaTT,Thanhtien,Phivanchuyen,Pttt,TinhtrangTT) VALUES ('TT4',160200,15000,N'Mã QR',N'Đã thanh toán');
+
+-- Tạo bảng ThanhVien
+CREATE TABLE ThanhVien(
+   MaTV     VARCHAR(3) NOT NULL PRIMARY KEY
+  ,MaTK     VARCHAR(3) NOT NULL
+  ,TenTV    NVARCHAR(50) NOT NULL
+  ,Email    VARCHAR(20) NOT NULL
+  ,Diachi   NVARCHAR(150) NOT NULL
+  ,Gioitinh NVARCHAR(3) NOT NULL
+  ,SDT      CHAR(10) NOT NULL
+  ,Hang     NVARCHAR(4) NOT NULL
+);
+-- Insert dữ liệu vào bảng ThanhVien
+INSERT INTO ThanhVien(MaTV,MaTK,TenTV,Email,Diachi,Gioitinh,SDT,Hang) VALUES ('TV1','TK4',N'Nguyễn Quỳnh Anh','tv1@gmail.com',N'Số 112, Đường Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh',N'Nữ','0987654321',N'Vàng');
+INSERT INTO ThanhVien(MaTV,MaTK,TenTV,Email,Diachi,Gioitinh,SDT,Hang) VALUES ('TV2','TK5',N'Nguyễn Cao Hoài Duyên','tv2@gmail.com',N'Số 23, Đường Nguyễn Văn Cừ, Phường An Khánh, Quận Ninh Kiều, TP. Cần Thơ',N'Nữ','0912345678',N'Bạc');
+INSERT INTO ThanhVien(MaTV,MaTK,TenTV,Email,Diachi,Gioitinh,SDT,Hang) VALUES ('TV3','TK6',N'Nguyễn Văn Linh','tv3@gmail.com',N'Số 55, Đường Trần Phú, Phường Vĩnh Thanh, TP. Nha Trang, Khánh Hòa',N'Nam','0908123456',N'Vàng');
+INSERT INTO ThanhVien(MaTV,MaTK,TenTV,Email,Diachi,Gioitinh,SDT,Hang) VALUES ('TV4','TK7',N'Nguyễn Phương Thảo','tv4@gmail.com',N'Số 76, Đường Phạm Văn Đồng, Phường Xuân Hà, Quận Thanh Khê, TP. Đà Nẵng',N'Nữ','0939876543',N'Đồng');
+INSERT INTO ThanhVien(MaTV,MaTK,TenTV,Email,Diachi,Gioitinh,SDT,Hang) VALUES ('TV5','TK8',N'Trịnh Đình Trọng','tv5@gmail.com',N'Ngõ 25, Đường Trần Hưng Đạo, Quận Hoàn Kiếm, Hà Nội',N'Nam','0966789012',N'Bạc');
+
+-- Tạo khóa ngoại bảng DonHang
+ALTER TABLE DonHang ADD CONSTRAINT FK1_DH FOREIGN KEY (MaTT) REFERENCES ThanhToan (MaTT);
+ALTER TABLE DonHang ADD CONSTRAINT FK2_DH FOREIGN KEY (MaTV) REFERENCES ThanhVien (MaTV);
+ALTER TABLE DonHang ADD CONSTRAINT FK3_DH FOREIGN KEY (MaKM) REFERENCES KhuyenMai (MaKM);
+-- Tạo khóa ngoại bảng ChiTietDonHang
+ALTER TABLE ChiTietDonHang ADD CONSTRAINT FK1_CTDH FOREIGN KEY (MaHD) REFERENCES DonHang (MaHD);
+ALTER TABLE ChiTietDonHang ADD CONSTRAINT FK2_CTDH FOREIGN KEY (MaSP) REFERENCES SanPham (MaSP);
+-- Tạo khóa ngoại bảng ChiTietGioHang
+ALTER TABLE ChiTietGioHang ADD CONSTRAINT FK1_CTGH FOREIGN KEY (MaSP) REFERENCES SanPham (MaSP);
+ALTER TABLE ChiTietGioHang ADD CONSTRAINT FK2_CTGH FOREIGN KEY (MaGH) REFERENCES GioHang (MaGH);
+-- Tạo khóa ngoại bảng SanPham
+ALTER TABLE SanPham ADD CONSTRAINT FK1_SP FOREIGN KEY (Maloai) REFERENCES LoaiSanPham (Maloai);
+ALTER TABLE SanPham ADD CONSTRAINT FK2_SP FOREIGN KEY (MaKM) REFERENCES KhuyenMai (MaKM);
+-- Tạo khóa ngoại bảng DanhGia
+ALTER TABLE DanhGia ADD CONSTRAINT FK1_DG FOREIGN KEY (MaTV) REFERENCES ThanhVien (MaTV);
+ALTER TABLE DanhGia ADD CONSTRAINT FK2_DG FOREIGN KEY (MaSP) REFERENCES SanPham (MaSP);
+-- Tạo khóa ngoại bảng ThanhVien
+ALTER TABLE ThanhVien ADD CONSTRAINT FK1_TV FOREIGN KEY (MaTK) REFERENCES TaiKhoan (MaTK);
+-- Tạo khóa ngoại bảng Admin
+ALTER TABLE Admin ADD CONSTRAINT FK1_AD FOREIGN KEY (MaTK) REFERENCES TaiKhoan (MaTK);
+-- Tạo khóa ngoại bảng TaiKhoan
+ALTER TABLE TaiKhoan ADD CONSTRAINT FK1_TK FOREIGN KEY (RoleID) REFERENCES Role (RoleID);
