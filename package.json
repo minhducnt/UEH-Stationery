@@ -7,14 +7,11 @@
     "@emotion/styled": "^11.13.0",
     "@google-cloud/cloud-sql-connector": "^1.3.4",
     "@google-cloud/storage": "^7.13.0",
+    "@mui/icons-material": "^6.1.1",
     "@mui/material": "^6.1.1",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.108",
-    "@types/react": "^18.3.8",
-    "@types/react-dom": "^18.3.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
@@ -26,14 +23,21 @@
     "path": "^0.12.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.3.0",
+    "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
+    "react-scroll-to-top": "^3.0.0",
+    "react-toastify": "^10.0.5",
     "sequelize": "^6.37.3",
     "sequelize-auto": "^0.8.8",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PUBLIC_URL=/home&& react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
