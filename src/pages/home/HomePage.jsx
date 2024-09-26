@@ -1,12 +1,12 @@
 import MetaData from "../../global/components/dialogs/MetaData";
 
-const SignInPage = () => {
+const HomePage = () => {
     return (
         <>
-            <MetaData title="Đăng nhập"></MetaData>
+            <MetaData title="Trang chủ"></MetaData>
 
         </>
     );
 }
 
-export default SignInPage;
+export default HomePage;

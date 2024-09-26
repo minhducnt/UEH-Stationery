@@ -2,39 +2,34 @@ import { useNavigate } from 'react-router-dom';
 
 import Button from '../../global/components/buttons/Button';
 import MetaData from '../../global/components/dialogs/MetaData';
-import Header from '../../global/layout/headers/header';
-import Footer from '../../global/layout/footers/footer';
+
+import { path } from '../../global/utils/constants/GlobalPath';
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <MetaData title="Not Found"></MetaData>
-      <>
-        <Header />
-      </>
+      <MetaData title="404"></MetaData>
+
       <div className="flex flex-col my-[120px] items-center gap-5">
         <h1 className="text-[150px] font-bold">404</h1>
+
         <div className="flex flex-col items-center">
           <h5 className="text-xl font-semibold">
-            Woops, looks like this page does not exist
+            Woops, có vẻ như trang này không tồn tại
           </h5>
-          <h6>You could either go back or go to homepage</h6>
+          <h6>Bạn có thể trở về hoặc về trang chủ</h6>
         </div>
+
         <Button
           bgColor="bg-black"
           className="text-white w-[200px]"
-          onClick={() =>
-            navigate('/home')
-          }
+          onClick={() => navigate(path.home)}
         >
-          Go Back
+          Trở về
         </Button>
       </div>
-      <>
-        <Footer />
-      </>
     </>
   );
 };

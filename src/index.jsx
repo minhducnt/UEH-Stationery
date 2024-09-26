@@ -1,20 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
+import { ToastContainer } from './global/utils/Toastify';
 
 import App from './App';
+import reportWebVitals from './global/utils/ReportWebVitals';
 
-import './styles/index.css';
+import { GlobalStyle } from './styles/global';
+import store from './redux/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root')
 );
 
 root.render(
-  <BrowserRouter>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <Provider store={store}>
+      <HelmetProvider>
+        <App />
+        <GlobalStyle />
+        <ToastContainer />
+      </HelmetProvider>
+    </Provider>
+  </React.StrictMode>
 );
+
+reportWebVitals();
