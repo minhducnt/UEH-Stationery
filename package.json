@@ -11,9 +11,6 @@
     "@mui/material": "^6.1.1",
     "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.2.7",
-    "@testing-library/jest-dom": "^6.5.0",
-    "@testing-library/react": "^16.0.1",
-    "@testing-library/user-event": "^14.5.2",
     "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
@@ -39,7 +36,6 @@
     "sequelize": "^6.37.3",
     "sequelize-auto": "^0.8.8",
     "styled-components": "^6.1.13",
-    "web-vitals": "^4.2.3",
     "yup": "^1.4.0"
   },
   "devDependencies": {

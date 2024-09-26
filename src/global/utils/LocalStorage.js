@@ -1,7 +1,9 @@
+//* Gán data vào local storage
 export const setLocalStorage = (name, items) => {
     localStorage.setItem(name, JSON.stringify(items));
 };
 
+//* Lấy data từ local storage
 export const getLocalStorage = name => {
     const data = localStorage.getItem(name);
     if (data) {
@@ -12,6 +14,7 @@ export const getLocalStorage = name => {
     }
 };
 
+//* Xóa data từ local storage
 export const removeLocalStorage = name => {
     localStorage.removeItem(name);
 };

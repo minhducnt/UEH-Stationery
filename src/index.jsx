@@ -5,7 +5,6 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ToastContainer } from './global/utils/Toastify';
 
 import App from './App';
-import reportWebVitals from './global/utils/ReportWebVitals';
 
 import { GlobalStyle } from './styles/global';
 import store from './redux/store';
@@ -25,5 +24,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
-reportWebVitals();

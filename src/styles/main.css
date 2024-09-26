@@ -4,7 +4,6 @@ html {
 
 body {
 	font-size: 1.6rem;
-	background-color: #0d0321;
 
 	&::-webkit-scrollbar {
 		width: 10px;
@@ -22,9 +21,8 @@ body {
 
 .container {
 	width: 100%;
-	max-width: 1470px;
 	margin: 0 auto;
-	padding: 0 15px;
+	padding: 0 auto;
 
 	@media screen and (max-width: 1023.98px) {
 		padding: 0 20px;
@@ -79,34 +77,6 @@ body {
 	.form-layout-3 {
 		grid-template-columns: 100%;
 	}
-}
-
-.swal2-popup.swal2-modal {
-	font-size: 16px;
-}
-
-.select-movie {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	width: 100%;
-}
-
-.select-poster {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-}
-
-.manage-header {
-	display: flex;
-	gap: 30px;
-	flex-shrink: 0;
-	margin-bottom: 30px;
-}
-
-.manage-header .search {
-	flex: 1;
 }
 
 .button-full {
