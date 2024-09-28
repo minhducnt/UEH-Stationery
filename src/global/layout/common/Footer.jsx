@@ -1,48 +1,64 @@
+import React from 'react';
+
 import styled from 'styled-components';
 
+import { Box } from '@mui/material';
+import Grid from '@mui/material/Grid2';
+import Divider from '@mui/material/Divider';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
+import FooterLogo from '../../../assets/imgs/Footer.png';
+
 const StyledFooter = styled.footer`
-    margin-top: 30px;
-    padding: 50px 0 50px;
     .footer-list {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 10px 30px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px 80px;
     }
+
     .footer-item {
         h3 {
             margin: 8px 0;
-            color: black;
+            font-size: 40px;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
         p {
+            font-size: 28px;
             padding: 6px 0;
-			color: black;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
     }
     .footer-item:first-child {
         h3 {
-            font-size: 3rem;
-            color: var(--primary-color);
+            font-size: 60px;
+            color: var(--white);
             margin: 0 0 5px;
+            font-weight: bold;
+            position: relative;
+            text-shadow: -1px -1px 0 #ff7f50, 1px -1px 0 #ff7f50, -1px 1px 0 #ff7f50, 1px 1px 0 #ff7f50,
+                2px 2px 5px rgba(0, 0, 0, 0.2);
         }
         p {
             padding: 0;
             line-height: 2;
         }
     }
-    .footer-bottom {
+    .footer-item-with-icon {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding-top: 40px;
-        gap: 30px;
+        justify-content: flex-start;
+        gap: 10px;
     }
-    .footer-social {
+    .footer-section {
         display: flex;
-        gap: 20px;
+        flex-direction: column;
+        margin-left: 40px;
+        gap: 10px;
     }
-    .footer-social ion-icon {
-        font-size: 2.2rem;
-    }
+
     .footer-images {
         display: flex;
         gap: 10px;
@@ -54,6 +70,7 @@ const StyledFooter = styled.footer`
         width: 80px;
         height: 80px;
     }
+
     @media screen and (max-width: 1023.98px) {
         .footer-list {
             grid-template-columns: repeat(2, 1fr);
@@ -75,10 +92,23 @@ const StyledFooter = styled.footer`
 const footerNav = [
     {
         title: 'UEH STATIONERY',
-        path: ['ueh.edu.vn', 'B1.111 – 279 Nguyễn Tri Phương Quận 10)']
+        path: ['ueh.edu.vn', 'B1.111 – 279 Nguyễn Tri Phương Quận 10)'],
+        icon: [
+            <AlternateEmailIcon
+                sx={{
+                    fontSize: '28px'
+                }}
+            />,
+            <LocationOnIcon
+                sx={{
+                    fontSize: '28px'
+                }}
+            />
+        ]
     },
     {
         title: 'Chính sách',
+        isPolicy: true,
         path: ['Hướng dẫn mua hàng ', 'Chính sách đổi trả ', 'Chính sách bảo mật']
     }
 ];
@@ -86,26 +116,96 @@ const footerNav = [
 const Footer = () => {
     return (
         <StyledFooter>
-            <div className="container">
-                <div className="footer-list">
-                    {footerNav.map((nav, index) => (
-                        <div className="footer-item" key={index}>
-                            <h3 className="footer-title">{nav.title}</h3>
-                            {nav.path.map((item, id) => (
-                                <p key={id}>{item}</p>
-                            ))}
+            <Divider
+                sx={{
+                    borderBottomWidth: 4,
+                    bgcolor: 'orange',
+                    width: '100%',
+                    mb: '84px'
+                }}
+            />
+
+            <Box
+                component="img"
+                src={FooterLogo}
+                alt="UEH University"
+                className="footer-images"
+                sx={{ width: '100%', height: '528px' }}
+            />
+
+            <Divider
+                sx={{
+                    borderBottomWidth: 2,
+                    bgcolor: '#79747E',
+                    width: '80%',
+                    mx: 'auto',
+                    mt: '57px',
+                    mb: '57px',
+                    opacity: 0.5
+                }}
+            />
+
+            <Box sx={{ bgcolor: '#005f6b', color: 'white', padding: '20px' }}>
+                <Grid container>
+                    <div className="footer-list">
+                        <div className="footer-item">
+                            <h3 className="footer-title">{footerNav[0].title}</h3>
+
+                            <div className="footer-item-with-icon">
+                                {footerNav[0].icon && <span>{footerNav[0].icon[0]}</span>}
+                                <p>{footerNav[0].path[0]}</p>
+                            </div>
+                            <div className="footer-item-with-icon">
+                                {footerNav[0].icon && <span>{footerNav[0].icon[1]}</span>}
+                                <p>{footerNav[0].path[1]}</p>
+                            </div>
                         </div>
-                    ))}
-                </div>
-                <div className="footer-bottom">
-                    <div className="footer-social">
-                        <ion-icon name="logo-facebook" style={{ color: '#3b5998' }}></ion-icon>
-                        <ion-icon name="logo-twitter" style={{ color: '#55ACEE' }}></ion-icon>
-                        <ion-icon name="logo-youtube" style={{ color: '#ff0000' }}></ion-icon>
-                        <ion-icon name="logo-google" style={{ color: '#DD4B39' }}></ion-icon>
+
+                        <div className="footer-item">
+                            <h3 className="footer-title">{footerNav[1].title}</h3>
+                            <Divider
+                                sx={{
+                                    borderBottomWidth: 3,
+                                    bgcolor: 'gray',
+                                    width: '100px',
+                                    ml: '24px',
+                                    mt: '12px',
+                                    mb: '8px'
+                                }}
+                            />
+                            <div className="footer-section">
+                                <div className="footer-item-with-icon">
+                                    <p>{footerNav[1].path[0]}</p>
+                                </div>
+                                <Divider
+                                    sx={{
+                                        borderBottomWidth: 2,
+                                        bgcolor: '#F26F33',
+                                        width: '160px',
+                                        mt: '12px',
+                                        mb: '8px'
+                                    }}
+                                />
+                                <div className="footer-item-with-icon">
+                                    <p>{footerNav[1].path[1]}</p>
+                                </div>
+                                <Divider
+                                    sx={{
+                                        borderBottomWidth: 2,
+                                        bgcolor: '#F26F33',
+                                        width: '160px',
+                                        mt: '12px',
+                                        mb: '8px'
+                                    }}
+                                />
+                                <div className="footer-item-with-icon">
+                                    <p>{footerNav[1].path[2]}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </Grid>
+            </Box>
         </StyledFooter>
     );
 };
