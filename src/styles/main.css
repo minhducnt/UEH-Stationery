@@ -1,85 +1,100 @@
+/* Đặt kích thước font cho thẻ html */
 html {
-	font-size: 62.5%;
+    font-size: 62.5%;
 }
 
+/* Đặt kích thước font cho thẻ body và tùy chỉnh thanh cuộn */
 body {
-	font-size: 1.6rem;
+    font-size: 1.6rem;
 
-	&::-webkit-scrollbar {
-		width: 10px;
-	}
+    /* Tùy chỉnh chiều rộng của thanh cuộn */
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
 
-	&::-webkit-scrollbar-track {
-		background-color: #fafafa;
-	}
+    /* Tùy chỉnh màu nền của track thanh cuộn */
+    &::-webkit-scrollbar-track {
+        background-color: #fafafa;
+    }
 
-	&::-webkit-scrollbar-thumb {
-		background-image: linear-gradient(-45deg, #084147FF, #005f69);
-		border-radius: 50px;
-	}
+    /* Tùy chỉnh màu và bo góc của thumb thanh cuộn */
+    &::-webkit-scrollbar-thumb {
+        background-image: linear-gradient(-45deg, #084147FF, #005f69);
+        border-radius: 50px;
+    }
 }
 
+/* Định dạng cho lớp container */
 .container {
-	width: 100%;
-	margin: 0 auto;
-	padding: 0 auto;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 auto;
 
-	@media screen and (max-width: 1023.98px) {
-		padding: 0 20px;
-	}
+    /* Tùy chỉnh padding cho màn hình có chiều rộng tối đa 1023.98px */
+    @media screen and (max-width: 1023.98px) {
+        padding: 0 20px;
+    }
 
-	@media screen and (max-width: 767.98px) {
-		padding: 0 15px;
-	}
+    /* Tùy chỉnh padding cho màn hình có chiều rộng tối đa 767.98px */
+    @media screen and (max-width: 767.98px) {
+        padding: 0 15px;
+    }
 }
 
+/* Định dạng cho lớp grid-layout */
 .grid-layout {
-	display: flex;
-	gap: 20px;
-	padding-top: 20px;
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
 }
 
+/* Định dạng cho lớp column1 */
 .column1 {
-	width: 65%;
+    width: 65%;
 }
 
+/* Định dạng cho lớp column2 */
 .column2 {
-	width: 35%;
+    width: 35%;
 }
 
+/* Định dạng cho lớp form-layout */
 .form-layout {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
 }
 
+/* Định dạng cho lớp form-layout-3 */
 .form-layout-3 {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
 }
 
+/* Tùy chỉnh cho màn hình có chiều rộng tối đa 1023.98px */
 @media screen and (max-width: 1023.98px) {
-	.grid-layout {
-		flex-direction: column;
-	}
+    .grid-layout {
+        flex-direction: column;
+    }
 
-	.column1,
-	.column2 {
-		width: 100%;
-	}
+    .column1,
+    .column2 {
+        width: 100%;
+    }
 
-	.column2 {
-		padding-top: 20px;
-	}
+    .column2 {
+        padding-top: 20px;
+    }
 
-	.form-layout,
-	.form-layout-3 {
-		grid-template-columns: 100%;
-	}
+    .form-layout,
+    .form-layout-3 {
+        grid-template-columns: 100%;
+    }
 }
 
+/* Định dạng cho lớp button-full */
 .button-full {
-	margin-top: 20px;
-	width: 100% !important;
+    margin-top: 20px;
+    width: 100% !important;
 }

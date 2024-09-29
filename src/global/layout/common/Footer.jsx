@@ -1,13 +1,11 @@
 import React from 'react';
-
 import styled from 'styled-components';
 
-import { Box } from '@mui/material';
+import { Box, Divider } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import Divider from '@mui/material/Divider';
+
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-
 import FooterLogo from '../../../assets/imgs/Footer.png';
 
 import { path } from '../../../routes/common/GlobalPath';
@@ -44,8 +42,7 @@ const StyledFooter = styled.footer`
             margin: 0 0 5px;
             font-weight: bold;
             position: relative;
-            text-shadow: -2px -2px 0 #ff7f50, 2px -2px 0 #ff7f50, -2px 2px 0 #ff7f50,
-                2px 2px 0 #ff7f50, 2px 2px 5px rgba(0, 0, 0, 0.8);
+            text-shadow: -2px -2px 0 #ff7f50, 2px -2px 0 #ff7f50, -2px 2px 0 #ff7f50, 2px 2px 0 #ff7f50, 2px 2px 5px rgba(0, 0, 0, 0.8);
         }
         p {
             padding: 0;
@@ -108,24 +105,18 @@ const Footer = () => {
             <Divider
                 sx={{
                     borderBottomWidth: 4,
-                    bgcolor: 'orange',
+                    backgroundColor: 'orange',
                     width: '100%',
                     mb: '84px'
                 }}
             />
 
-            <Box
-                component="img"
-                src={FooterLogo}
-                alt="UEH University"
-                className="footer-images"
-                sx={{ width: '100%', height: '528px' }}
-            />
+            <Box component="img" src={FooterLogo} alt="UEH University" className="footer-images" sx={{ width: '100%', height: '528px' }} />
 
             <Divider
                 sx={{
                     borderBottomWidth: 2,
-                    bgcolor: '#79747E',
+                    backgroundColor: '#79747E',
                     width: '80%',
                     mx: 'auto',
                     mt: '57px',
@@ -134,7 +125,7 @@ const Footer = () => {
                 }}
             />
 
-            <Box sx={{ bgcolor: '#005f6b', color: 'white', padding: '20px' }}>
+            <Box sx={{ backgroundColor: '#005f6b', color: 'white', padding: '20px' }}>
                 <Grid container>
                     <div className="footer-list">
                         <div className="footer-item">
@@ -155,7 +146,7 @@ const Footer = () => {
                             <Divider
                                 sx={{
                                     borderBottomWidth: 3,
-                                    bgcolor: 'gray',
+                                    backgroundColor: 'gray',
                                     width: '100px',
                                     ml: '24px',
                                     mt: '12px',
@@ -169,7 +160,7 @@ const Footer = () => {
                                 <Divider
                                     sx={{
                                         borderBottomWidth: 2,
-                                        bgcolor: '#F26F33',
+                                        backgroundColor: '#F26F33',
                                         width: '160px',
                                         mt: '12px',
                                         mb: '8px'
@@ -181,7 +172,7 @@ const Footer = () => {
                                 <Divider
                                     sx={{
                                         borderBottomWidth: 2,
-                                        bgcolor: '#F26F33',
+                                        backgroundColor: '#F26F33',
                                         width: '160px',
                                         mt: '12px',
                                         mb: '8px'

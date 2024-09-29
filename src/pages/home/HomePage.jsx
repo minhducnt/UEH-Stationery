@@ -1,12 +1,11 @@
-import MetaData from "../../global/components/dialogs/MetaData";
+import MetaData from '../../global/components/common/MetaData';
 
 const HomePage = () => {
     return (
         <>
-            <MetaData title="Trang chủ"></MetaData>
-
+            <MetaData title='Trang chủ'></MetaData>
         </>
     );
-}
+};
 
 export default HomePage;

@@ -5,12 +5,18 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { withErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
-import { TextField, Typography, Box, Link, InputAdornment } from '@mui/material';
+import {
+    TextField,
+    Typography,
+    Box,
+    Link,
+    InputAdornment
+} from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 import Button from '../../global/components/buttons/Button';
-import MetaData from '../../global/components/dialogs/MetaData';
+import MetaData from '../../global/components/common/MetaData';
 import { notifySuccess, notifyError } from '../../global/utils/Toastify';
 import { loginSchema } from '../../global/utils/validators/validator';
 import { path } from '../../routes/common/GlobalPath';
@@ -52,7 +58,8 @@ const Title = styled(Typography)`
         margin-bottom: 56px;
         padding: 24px;
         text-transform: uppercase;
-        text-shadow: -1px -1px 0 #226b68, 1px -1px 0 #226b68, -1px 1px 0 #226b68, 1px 1px 0 #226b68;
+        text-shadow: -1px -1px 0 #226b68, 1px -1px 0 #226b68, -1px 1px 0 #226b68,
+            1px 1px 0 #226b68;
     }
 `;
 
@@ -139,8 +146,8 @@ const CustomButton = styled(Button)`
         margin: 0.25rem 60px;
         border-radius: 0;
         text-transform: uppercase;
-        text-shadow: -0.5px -0.5px 0 #005f69, 0.5px -0.5px 0 #005f69, -0.5px 0.5px 0 #005f69,
-            0.5px 0.5px 0 #005f69;
+        text-shadow: -0.5px -0.5px 0 #005f69, 0.5px -0.5px 0 #005f69,
+            -0.5px 0.5px 0 #005f69, 0.5px 0.5px 0 #005f69;
 
         &:hover {
             background-color: #ff6a1c;
@@ -169,7 +176,9 @@ const SignInPage = () => {
     const dispatch = useDispatch();
     const location = useLocation();
 
-    const { isAuthenticated, loading, error, user } = useSelector(state => state.auth);
+    const { isAuthenticated, loading, error, user } = useSelector(
+        state => state.auth
+    );
     const navigate = useNavigate();
 
     const handleLogin = data => {
@@ -195,7 +204,16 @@ const SignInPage = () => {
             notifyError(error);
             reset();
         }
-    }, [error, isAuthenticated, dispatch, navigate, reset, setFocus, user.role, redirect]);
+    }, [
+        error,
+        isAuthenticated,
+        dispatch,
+        navigate,
+        reset,
+        setFocus,
+        user.role,
+        redirect
+    ]);
 
     useEffect(() => {
         setFocus('email');
@@ -203,51 +221,58 @@ const SignInPage = () => {
 
     return (
         <>
-            <MetaData title="Đăng nhập"></MetaData>
+            <MetaData title='Đăng nhập'></MetaData>
 
             <Container>
-                <Title variant="h5">Đăng Nhập Tài Khoản</Title>
+                <Title variant='h5'>Đăng Nhập Tài Khoản</Title>
 
-                <form onSubmit={handleSubmit(handleLogin)} autoComplete="off">
+                <form onSubmit={handleSubmit(handleLogin)} autoComplete='off'>
                     <FormWrapper>
                         <FieldTitle>
-                            Địa chỉ email <span className="text-red-600">*</span>
+                            Địa chỉ email{' '}
+                            <span className='text-red-600'>*</span>
                         </FieldTitle>
                         <CustomTextField
                             fullWidth
-                            type="email"
+                            type='email'
                             {...register('email')}
-                            variant="outlined"
-                            placeholder="Email"
+                            variant='outlined'
+                            placeholder='Email'
                             required
                         />
                         {errors?.email && (
-                            <div className="text-red-500">{errors.email?.message}</div>
+                            <div className='text-red-500'>
+                                {errors.email?.message}
+                            </div>
                         )}
 
                         <FieldTitle>
-                            Mật khẩu <span className="text-red-600">*</span>
+                            Mật khẩu <span className='text-red-600'>*</span>
                         </FieldTitle>
                         <CustomTextField
                             fullWidth
-                            variant="outlined"
+                            variant='outlined'
                             type={show ? 'text' : 'password'}
                             {...register('password')}
-                            placeholder="Password"
+                            placeholder='Password'
                             required
                             InputProps={{
                                 endAdornment: (
-                                    <InputAdornment position="end">
+                                    <InputAdornment position='end'>
                                         {getValues('password') &&
                                             (!show ? (
                                                 <VisibilityIcon
-                                                    className="password-eye"
-                                                    onClick={() => setShow(prev => !prev)}
+                                                    className='password-eye'
+                                                    onClick={() =>
+                                                        setShow(prev => !prev)
+                                                    }
                                                 />
                                             ) : (
                                                 <VisibilityOffIcon
-                                                    className="password-eye"
-                                                    onClick={() => setShow(prev => !prev)}
+                                                    className='password-eye'
+                                                    onClick={() =>
+                                                        setShow(prev => !prev)
+                                                    }
                                                 />
                                             ))}
                                     </InputAdornment>
@@ -255,20 +280,27 @@ const SignInPage = () => {
                             }}
                         />
                         {errors?.password && (
-                            <div className="text-red-500">{errors.password?.message}</div>
+                            <div className='text-red-500'>
+                                {errors.password?.message}
+                            </div>
                         )}
 
-                        <CustomLink href={path.forgotPassword}>Quên mật khẩu?</CustomLink>
+                        <CustomLink href={path.forgotPassword}>
+                            Quên mật khẩu?
+                        </CustomLink>
 
                         <ButtonWrapper>
                             <CustomButton
-                                variant="contained"
-                                type="submit"
+                                variant='contained'
+                                type='submit'
                                 disabled={loading ? true : false}
                             >
                                 Đăng Nhập
                             </CustomButton>
-                            <CustomButton variant="contained" onClick={() => navigate(path.signUp)}>
+                            <CustomButton
+                                variant='contained'
+                                onClick={() => navigate(path.signUp)}
+                            >
                                 Đăng Ký
                             </CustomButton>
                         </ButtonWrapper>
@@ -280,7 +312,11 @@ const SignInPage = () => {
 };
 
 const FallbackComponent = () => {
-    return <p className="text-red-400 bg-red-50">Something went wrong with this Component</p>;
+    return (
+        <p className='text-red-400 bg-red-50'>
+            Something went wrong with this Component
+        </p>
+    );
 };
 
 export default withErrorBoundary(SignInPage, FallbackComponent);

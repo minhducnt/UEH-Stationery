@@ -1,7 +1,8 @@
-import React, { Fragment, lazy, Suspense, useLayoutEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import React, { Fragment, lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { path } from './common/GlobalPath';
+import AppWrapper from '../global/components/common/Wrapper';
 
 //* Layout
 import MainLayout from '../global/layout/MainLayout';
@@ -24,7 +25,7 @@ const RoutesComponent = () => {
         <Fragment>
             <Suspense fallback={<></>}>
                 <Router>
-                    <Wrapper>
+                    <AppWrapper>
                         <Routes>
                             <Route element={<MainLayout />}>
                                 <Route path={path.home} element={<Home />} />
@@ -34,20 +35,12 @@ const RoutesComponent = () => {
                                 <Route path={path.notFound} element={<NotFound />} />
                             </Route>
                         </Routes>
-                    </Wrapper>
+                    </AppWrapper>
                 </Router>
             </Suspense>
             <BackToTop />
         </Fragment>
     );
-};
-
-const Wrapper = ({ children }) => {
-    const location = useLocation();
-    useLayoutEffect(() => {
-        document.documentElement.scrollTo(0, 0);
-    }, [location.pathname]);
-    return children;
 };
 
 export default RoutesComponent;

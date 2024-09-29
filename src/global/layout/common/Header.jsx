@@ -17,7 +17,7 @@ import DiscountIcon from '@mui/icons-material/Discount';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonIcon from '@mui/icons-material/Person';
-import logo from '../../../assets/imgs/Logo.png';
+import HeaderLogo from '../../../assets/imgs/Logo.png';
 
 import { path } from '../../../routes/common/GlobalPath';
 
@@ -178,6 +178,13 @@ const StyledBottomHeader = styled.div`
     }
 `;
 
+const StyledTypography = styled(Typography)`
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
 const Header = () => {
     const [menuState, setMenuState] = useState({
         isShowMenu: false,
@@ -214,7 +221,7 @@ const Header = () => {
                     <div className="header-content">
                         {/* Left Section: Logo */}
                         <Link to={path.home} className="header-logo">
-                            <img alt="" src={logo} height={72} />
+                            <img alt="" src={HeaderLogo} height={72} />
                             <h2>STATIONERY</h2>
                         </Link>
 
@@ -222,13 +229,9 @@ const Header = () => {
                         <div className="header-center">
                             <div className="search-bar">
                                 <span className="search-icon-prefix">
-                                    <ArrowBackIosNewIcon
-                                        sx={{ fontSize: '1.6rem', color: 'gray' }}
-                                    />
+                                    <ArrowBackIosNewIcon sx={{ fontSize: '1.6rem', color: 'gray' }} />
                                 </span>
-
                                 <input type="text" placeholder="Tìm kiếm" />
-
                                 <span className="search-icon-suffix">
                                     <SearchIcon sx={{ fontSize: '2rem', color: 'gray' }} />
                                 </span>
@@ -241,18 +244,10 @@ const Header = () => {
                                 <a href="tel:+842873061976">
                                     <CallIcon />
                                 </a>
-                                <a
-                                    href="https://maps.app.goo.gl/AkzGz5j9cfVkbM9p8"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
+                                <a href="https://maps.app.goo.gl/AkzGz5j9cfVkbM9p8" target="_blank" rel="noopener noreferrer">
                                     <LocationOnIcon />
                                 </a>
-                                <a
-                                    href="https://www.facebook.com/DHKT.UEH"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
+                                <a href="https://www.facebook.com/DHKT.UEH" target="_blank" rel="noopener noreferrer">
                                     <FacebookIcon />
                                 </a>
                             </div>
@@ -266,9 +261,7 @@ const Header = () => {
                 </div>
 
                 {/* Overplay when open menu in tablet + mobile */}
-                {menuState.isShowMenu && (
-                    <div className="header-overplay" onClick={handleToggleMenu}></div>
-                )}
+                {menuState.isShowMenu && <div className="header-overplay" onClick={handleToggleMenu}></div>}
             </StyledTopHeader>
 
             <StyledBottomHeader>
@@ -278,16 +271,19 @@ const Header = () => {
                         <GroupsIcon />
                         Giới thiệu
                     </Link>
+
                     <div className="vertical-divider" />
                     <Link to={paths.products} className="tab">
                         <DashboardIcon />
                         Danh mục sản phẩm
                     </Link>
+
                     <div className="vertical-divider" />
                     <Link to={paths.contact} className="tab">
                         <ContactSupportIcon />
                         Khuyến mãi
                     </Link>
+
                     <div className="vertical-divider" />
                     <Link to={paths.about} className="tab">
                         <DiscountIcon />
@@ -307,23 +303,10 @@ const Header = () => {
                         >
                             Đăng nhập
                         </Button>
-                        <Menu
-                            id="login-menu"
-                            anchorEl={menuState.anchorEl}
-                            open={Boolean(menuState.anchorEl)}
-                            onClose={handleClose}
-                        >
+                        <Menu id="login-menu" anchorEl={menuState.anchorEl} open={Boolean(menuState.anchorEl)} onClose={handleClose}>
                             <MenuItem>
                                 <Link to={path.signIn}>
-                                    <Typography
-                                        variant="body1"
-                                        sx={{
-                                            fontSize: '20px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center'
-                                        }}
-                                    >
+                                    <StyledTypography variant="body1">
                                         <PersonIcon
                                             sx={{
                                                 fontSize: '28px',
@@ -331,20 +314,12 @@ const Header = () => {
                                             }}
                                         />
                                         Đăng nhập
-                                    </Typography>
+                                    </StyledTypography>
                                 </Link>
                             </MenuItem>
                             <MenuItem>
                                 <Link to={path.signUp}>
-                                    <Typography
-                                        variant="body1"
-                                        sx={{
-                                            fontSize: '20px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center'
-                                        }}
-                                    >
+                                    <StyledTypography variant="body1">
                                         <PersonIcon
                                             sx={{
                                                 fontSize: '28px',
@@ -352,7 +327,7 @@ const Header = () => {
                                             }}
                                         />
                                         Đăng ký
-                                    </Typography>
+                                    </StyledTypography>
                                 </Link>
                             </MenuItem>
                         </Menu>

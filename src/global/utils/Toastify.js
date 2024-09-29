@@ -1,7 +1,7 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Snackbar thông báo thành công
+//* Snackbar thông báo thành công
 const notifySuccess = message =>
     toast.success(message, {
         position: 'bottom-left',
@@ -13,7 +13,7 @@ const notifySuccess = message =>
         progress: undefined
     });
 
-// Snackbar thông báo lỗi
+//* Snackbar thông báo lỗi
 const notifyError = message =>
     toast.error(message, {
         position: 'bottom-left',
@@ -25,6 +25,7 @@ const notifyError = message =>
         progress: undefined
     });
 
+//* Container chứa các snackbar thông báo
 <ToastContainer
     position="bottom-left"
     autoClose={3000}

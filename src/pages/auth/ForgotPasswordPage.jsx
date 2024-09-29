@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { TextField, Typography, Box } from '@mui/material';
 
 import Button from '../../global/components/buttons/Button';
-import MetaData from '../../global/components/dialogs/MetaData';
+import MetaData from '../../global/components/common/MetaData';
 import { notifySuccess, notifyError } from '../../global/utils/Toastify';
 import { loginSchema } from '../../global/utils/validators/validator';
 
@@ -48,7 +48,8 @@ const Title = styled(Typography)`
         margin-bottom: 56px;
         padding: 24px;
         text-transform: uppercase;
-        text-shadow: -1px -1px 0 #226b68, 1px -1px 0 #226b68, -1px 1px 0 #226b68, 1px 1px 0 #226b68;
+        text-shadow: -1px -1px 0 #226b68, 1px -1px 0 #226b68, -1px 1px 0 #226b68,
+            1px 1px 0 #226b68;
     }
 `;
 
@@ -120,8 +121,8 @@ const CustomButton = styled(Button)`
         margin: 0.25rem 60px;
         border-radius: 0;
         text-transform: uppercase;
-        text-shadow: -0.5px -0.5px 0 #005f69, 0.5px -0.5px 0 #005f69, -0.5px 0.5px 0 #005f69,
-            0.5px 0.5px 0 #005f69;
+        text-shadow: -0.5px -0.5px 0 #005f69, 0.5px -0.5px 0 #005f69,
+            -0.5px 0.5px 0 #005f69, 0.5px 0.5px 0 #005f69;
 
         &:hover {
             background-color: #ff6a1c;
@@ -148,7 +149,9 @@ const ForgotPasswordPage = () => {
     const dispatch = useDispatch();
     const location = useLocation();
 
-    const { isAuthenticated, loading, error, user } = useSelector(state => state.auth);
+    const { isAuthenticated, loading, error, user } = useSelector(
+        state => state.auth
+    );
     const navigate = useNavigate();
 
     const handleLogin = data => {
@@ -174,7 +177,16 @@ const ForgotPasswordPage = () => {
             notifyError(error);
             reset();
         }
-    }, [error, isAuthenticated, dispatch, navigate, reset, setFocus, user.role, redirect]);
+    }, [
+        error,
+        isAuthenticated,
+        dispatch,
+        navigate,
+        reset,
+        setFocus,
+        user.role,
+        redirect
+    ]);
 
     useEffect(() => {
         setFocus('email');
@@ -182,37 +194,43 @@ const ForgotPasswordPage = () => {
 
     return (
         <>
-            <MetaData title="Quên mật khẩu"></MetaData>
+            <MetaData title='Quên mật khẩu'></MetaData>
 
             <Container>
-                <Title variant="h5">Quên Mật Khẩu</Title>
+                <Title variant='h5'>Quên Mật Khẩu</Title>
 
-                <form onSubmit={handleSubmit(handleLogin)} autoComplete="off">
+                <form onSubmit={handleSubmit(handleLogin)} autoComplete='off'>
                     <FormWrapper>
                         <FieldTitle>
-                            Địa chỉ email <span className="text-red-600">*</span>
+                            Địa chỉ email{' '}
+                            <span className='text-red-600'>*</span>
                         </FieldTitle>
                         <CustomTextField
                             fullWidth
-                            type="email"
+                            type='email'
                             {...register('email')}
-                            variant="outlined"
-                            placeholder="Email"
+                            variant='outlined'
+                            placeholder='Email'
                             required
                         />
                         {errors?.email && (
-                            <div className="text-red-500">{errors.email?.message}</div>
+                            <div className='text-red-500'>
+                                {errors.email?.message}
+                            </div>
                         )}
 
                         <ButtonWrapper>
                             <CustomButton
-                                variant="contained"
-                                type="submit"
+                                variant='contained'
+                                type='submit'
                                 disabled={loading ? true : false}
                             >
                                 Lấy Lại Mật Khẩu
                             </CustomButton>
-                            <CustomButton variant="contained" onClick={() => navigate(-1)}>
+                            <CustomButton
+                                variant='contained'
+                                onClick={() => navigate(-1)}
+                            >
                                 Trở Lại
                             </CustomButton>
                         </ButtonWrapper>
@@ -224,7 +242,11 @@ const ForgotPasswordPage = () => {
 };
 
 const FallbackComponent = () => {
-    return <p className="text-red-400 bg-red-50">Something went wrong with this Component</p>;
+    return (
+        <p className='text-red-400 bg-red-50'>
+            Something went wrong with this Component
+        </p>
+    );
 };
 
 export default withErrorBoundary(ForgotPasswordPage, FallbackComponent);

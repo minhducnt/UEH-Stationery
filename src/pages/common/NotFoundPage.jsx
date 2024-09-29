@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Box, Container, Typography } from '@mui/material';
 import Button from '../../global/components/buttons/Button';
-import MetaData from '../../global/components/dialogs/MetaData';
+import MetaData from '../../global/components/common/MetaData';
 
 import { path } from '../../routes/common/GlobalPath';
 
@@ -34,15 +34,20 @@ const NotFoundPage = () => {
 
     return (
         <>
-            <MetaData title="404"></MetaData>
+            <MetaData title='404'></MetaData>
 
             <CenteredContainer>
-                <Box display="flex" flexDirection="column" alignItems="center" gap="30px">
-                    <StyledHeading variant="h1">404</StyledHeading>
+                <Box
+                    display='flex'
+                    flexDirection='column'
+                    alignItems='center'
+                    gap='30px'
+                >
+                    <StyledHeading variant='h1'>404</StyledHeading>
 
                     <StyledBox />
 
-                    <Typography variant="h3" className="h3">
+                    <Typography variant='h3' className='h3'>
                         Woops, có vẻ như trang này không tồn tại
                     </Typography>
 
@@ -50,7 +55,7 @@ const NotFoundPage = () => {
                         onClick={() => {
                             navigate(path.home);
                         }}
-                        kind="primary"
+                        kind='primary'
                     >
                         Trở về
                     </Button>

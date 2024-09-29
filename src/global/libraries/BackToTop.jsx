@@ -1,5 +1,6 @@
 import ScrollToTop from 'react-scroll-to-top';
 
+//* Nút `Back to top` khi cuộn trang
 const BackToTop = () => {
     return (
         <ScrollToTop

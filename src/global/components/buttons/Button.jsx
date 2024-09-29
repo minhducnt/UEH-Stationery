@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
+//? Biến màu sắc cho button
 const COLOR = {
     primary: css`
         color: var(--white);
@@ -20,12 +21,14 @@ const COLOR = {
     `
 };
 
+//? Biến trạng thái disabled cho button
 const DISABLED = css`
     cursor: not-allowed;
     opacity: 0.5;
     pointer-events: none;
 `;
 
+//? Style cho button
 const StyledButton = styled.button`
     cursor: pointer;
     font-size: 1.6rem;
@@ -38,21 +41,14 @@ const StyledButton = styled.button`
     cursor: pointer;
     ${props => props.kind && COLOR[props.kind]}
     ${props => props.disabled && DISABLED}
-  &:disabled {
+    &:disabled {
         opacity: 0.5;
         pointer-events: none;
     }
 `;
 
-const Button = ({
-    to,
-    type = 'button',
-    children,
-    height = '44',
-    kind = 'normal',
-    onClick,
-    ...props
-}) => {
+//? Thành phần Button
+const Button = ({ to, type = 'button', children, height = '44', kind = 'normal', onClick, ...props }) => {
     if (to) {
         return (
             <Link to={to} style={{ display: 'block' }}>

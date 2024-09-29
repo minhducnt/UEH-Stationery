@@ -1,4 +1,4 @@
-//* Checks if a JWT token is expired
+//* Kiểm tra xem token JWT có hết hạn không
 const isTokenExpired = expiryTime => {
     if (expiryTime) {
         const expiryDate = new Date(expiryTime.ExpiresAt);
@@ -8,13 +8,13 @@ const isTokenExpired = expiryTime => {
     return true;
 };
 
-//* Capitalizes the first letter of a string
+//* Viết hoa chữ cái đầu tiên của một chuỗi
 function toSentenceCase(string) {
     if (string == null) return '';
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-//* Capitalized the first letter of each word in a string
+//* Viết hoa chữ cái đầu tiên của mỗi từ trong một chuỗi
 function toTitleCase(string) {
     if (string == null) return '';
     return string.replace(/\w\S*/g, function (txt) {
@@ -22,7 +22,7 @@ function toTitleCase(string) {
     });
 }
 
-//* Format currency
+//* Định dạng tiền tệ
 function formatCurrency(amount) {
     return new Intl.NumberFormat('vi-VN', {
         style: 'currency',

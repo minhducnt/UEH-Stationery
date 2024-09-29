@@ -1,8 +1,7 @@
 import dayjs from 'dayjs';
-
 import moment from 'moment';
 
-//* Returns a matrix representing the days of a specific month
+//* Trả về một ma trận đại diện cho các ngày của một tháng cụ thể
 const getMonth = (month = dayjs().month()) => {
     month = Math.floor(month);
     const year = dayjs().year();
@@ -17,7 +16,7 @@ const getMonth = (month = dayjs().month()) => {
     return daysMatrix;
 };
 
-//* Converts a date from ISO format to DD-MM-YY format
+//* Chuyển đổi ngày từ định dạng ISO sang định dạng DD-MM-YY
 const convertDateISOToDDMMYYY = dateISO => {
     const dateObj = new Date(dateISO);
     const day = dateObj.getDate().toString().padStart(2, '0');
@@ -26,7 +25,7 @@ const convertDateISOToDDMMYYY = dateISO => {
     return `${day}-${month}-${year}`;
 };
 
-//* Converts a date from ISO format to HH:mm format
+//* Chuyển đổi ngày từ định dạng ISO sang định dạng HH:mm
 const convertDateISOToHHmm = dateISO => {
     if (dateISO) {
         if (moment.utc(dateISO).format('HH:mm') !== 'Invalid date') {
@@ -36,7 +35,7 @@ const convertDateISOToHHmm = dateISO => {
     return '--:--';
 };
 
-//* Converts a date from ISO format to DD/MM/yyyy format
+//* Chuyển đổi ngày từ định dạng ISO sang định dạng DD/MM/yyyy
 const convertDateISOToDDMMyyyy = dateISO => {
     if (dateISO) {
         if (moment.utc(dateISO).format('DD/MM/yyyy') !== 'Invalid date') {
@@ -46,19 +45,19 @@ const convertDateISOToDDMMyyyy = dateISO => {
     return '--/--/----';
 };
 
-//* Converts a date to the format YYYY-MM-DD
+//* Chuyển đổi ngày sang định dạng YYYY-MM-DD
 const getMomentDateFormat = dateInput => {
     const date = new Date(dateInput).toUTCString();
     const formatDate = moment.utc(date).format('YYYY-MM-DD');
     return formatDate;
 };
 
-//* Converts a date from ISO format to YYYY-MM-DD format
+//* Chuyển đổi ngày từ định dạng ISO sang định dạng YYYY-MM-DD
 const convertDateISOToYYYY_MM_DD = dateISO => {
     return dateISO.split('T')[0];
 };
 
-//* Checks if a date is in the same month as the current date
+//* Kiểm tra xem ngày được chọn có trong tháng hiện tại không
 function isInSameMonth(value) {
     if (value) {
         const currentMonth = new Date().getMonth();
@@ -68,6 +67,7 @@ function isInSameMonth(value) {
     return true;
 }
 
+//* Chuyển đổi ngày sang định dạng YYYY-MM-DD
 function convertDateToYYYYMMDD(date) {
     if (date) {
         return moment(date).format('YYYY-MM-DD');
@@ -75,6 +75,7 @@ function convertDateToYYYYMMDD(date) {
     return '';
 }
 
+//* Chuyển đổi ngày sang định dạng ISO
 function convertToISOString(dateString) {
     const date = new Date(dateString);
 

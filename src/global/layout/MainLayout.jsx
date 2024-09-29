@@ -7,6 +7,7 @@ import Header from './common/Header';
 const StyledMainLayout = styled.div`
     main {
         min-height: 100vh;
+        padding: 0 20px;
     }
 `;
 
