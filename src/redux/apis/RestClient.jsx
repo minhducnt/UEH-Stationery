@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import Cookies from 'js-cookie';
 import queryString from 'query-string';
 
-import { Helper } from '../../global/utils/helpers/Misc';
-import { path } from '../../global/utils/constants/GlobalPath';
+import { Helper } from '../../global/utils/helpers/misc';
+import { path } from '../../routes/common/GlobalPath';
 
 const restClient = createApi({
     reducerPath: 'api',
@@ -11,7 +11,7 @@ const restClient = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: process.env.BASE_URL,
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
         prepareHeaders: async (headers, { getState, endpoint }) => {
             try {
@@ -23,7 +23,11 @@ const restClient = createApi({
 
                     if (accessToken && !Helper.isTokenExpired(accessToken)) {
                         headers.set('Authorization', `Bearer ${accessToken}`);
-                    } else if (!refreshToken && accessToken != null && Helper.isTokenExpired(accessToken)) {
+                    } else if (
+                        !refreshToken &&
+                        accessToken != null &&
+                        Helper.isTokenExpired(accessToken)
+                    ) {
                         Cookies.remove('userAuth');
                         window.location.href = path.signIn;
                     }
@@ -33,7 +37,7 @@ const restClient = createApi({
             }
             return headers;
         },
-        paramsSerializer: (params) => queryString.stringify(params),
+        paramsSerializer: params => queryString.stringify(params)
     }),
 
     endpoints: () => ({}),

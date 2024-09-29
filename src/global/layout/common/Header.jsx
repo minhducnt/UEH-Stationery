@@ -19,7 +19,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import PersonIcon from '@mui/icons-material/Person';
 import logo from '../../../assets/imgs/Logo.png';
 
-import { path } from '../../utils/constants/GlobalPath';
+import { path } from '../../../routes/common/GlobalPath';
 
 const paths = {
     home: path.home,
@@ -52,11 +52,11 @@ const StyledTopHeader = styled.header`
     }
     .header-logo h2 {
         color: white;
-        font-size: 2.6rem;
-        font-weight: 700;
-        text-shadow: -1px -1px 0 #226b68, 1px -1px 0 #226b68, -1px 1px 0 #226b68, 1px 1px 0 #226b68;
+        font-size: 50px;
+        font-weight: 400;
+        text-shadow: -1px -1px 0 #005f69, 1px -1px 0 #005f69, -1px 1px 0 #005f69, 1px 1px 0 #005f69;
         margin: 0;
-        font-family: 'Baloo';
+        font-family: 'Baloo 2';
     }
 
     .header-center {

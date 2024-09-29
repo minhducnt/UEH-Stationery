@@ -10,7 +10,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 import FooterLogo from '../../../assets/imgs/Footer.png';
 
-import { path } from '../../utils/constants/GlobalPath';
+import { path } from '../../../routes/common/GlobalPath';
 
 const StyledFooter = styled.footer`
     .footer-list {
@@ -24,13 +24,13 @@ const StyledFooter = styled.footer`
             margin: 8px 0;
             font-size: 40px;
             color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
         }
         p,
         a {
             font-size: 28px;
             color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
             cursor: pointer;
         }
         a: hover {
@@ -44,8 +44,8 @@ const StyledFooter = styled.footer`
             margin: 0 0 5px;
             font-weight: bold;
             position: relative;
-            text-shadow: -1px -1px 0 #ff7f50, 1px -1px 0 #ff7f50, -1px 1px 0 #ff7f50,
-                1px 1px 0 #ff7f50, 2px 2px 5px rgba(0, 0, 0, 0.2);
+            text-shadow: -2px -2px 0 #ff7f50, 2px -2px 0 #ff7f50, -2px 2px 0 #ff7f50,
+                2px 2px 0 #ff7f50, 2px 2px 5px rgba(0, 0, 0, 0.8);
         }
         p {
             padding: 0;

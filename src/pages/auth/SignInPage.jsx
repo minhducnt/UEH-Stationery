@@ -12,8 +12,8 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Button from '../../global/components/buttons/Button';
 import MetaData from '../../global/components/dialogs/MetaData';
 import { notifySuccess, notifyError } from '../../global/utils/Toastify';
-import { loginSchema } from '../../global/utils/validators/Validator';
-import { path } from '../../global/utils/constants/GlobalPath';
+import { loginSchema } from '../../global/utils/validators/validator';
+import { path } from '../../routes/common/GlobalPath';
 import { signIn } from '../../redux/thunks/AuthThunk';
 
 // Styled Components
@@ -44,7 +44,7 @@ const FormWrapper = styled.div`
 const Title = styled(Typography)`
     && {
         text-align: center;
-        background-color: rgba(27, 138, 133, 0.8);
+        background-color: rgba(27, 138, 133, 1);
         color: #fff;
         font-size: 32px;
         width: auto;
@@ -52,7 +52,7 @@ const Title = styled(Typography)`
         margin-bottom: 56px;
         padding: 24px;
         text-transform: uppercase;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        text-shadow: -1px -1px 0 #226b68, 1px -1px 0 #226b68, -1px 1px 0 #226b68, 1px 1px 0 #226b68;
     }
 `;
 
@@ -130,14 +130,17 @@ const CustomButton = styled(Button)`
     && {
         color: #fff;
         background-color: #ff7a33;
+        width: 240px;
         height: 60px;
-        width: 280px;
-        font-size: 2rem;
+        font-size: 2.4rem;
         font-weight: 700;
+        font-family: 'Anton SC';
+        padding: 0.5rem 1rem;
         margin: 0.25rem 60px;
         border-radius: 0;
         text-transform: uppercase;
-        text-shadow: -1px -1px 0 #226b68, 1px -1px 0 #226b68, -1px 1px 0 #226b68, 1px 1px 0 #226b68;
+        text-shadow: -0.5px -0.5px 0 #005f69, 0.5px -0.5px 0 #005f69, -0.5px 0.5px 0 #005f69,
+            0.5px 0.5px 0 #005f69;
 
         &:hover {
             background-color: #ff6a1c;
@@ -184,7 +187,7 @@ const SignInPage = () => {
                 navigate('/admin/dashboard');
             }
             reset();
-            notifySuccess('Login successfully!');
+            notifySuccess('Đăng nhập thành công!');
         }
 
         if (error) {

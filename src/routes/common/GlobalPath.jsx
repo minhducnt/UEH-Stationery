@@ -6,5 +6,5 @@ export const path = {
     notFound: '*',
     products: '/products',
     contact: '/contact',
-    about: '/about'
+    about: '/about',
 };

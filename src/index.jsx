@@ -9,18 +9,16 @@ import App from './App';
 import { GlobalStyle } from './styles/global';
 import store from './redux/store';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <HelmetProvider>
-        <App />
-        <GlobalStyle />
-        <ToastContainer />
-      </HelmetProvider>
-    </Provider>
-  </React.StrictMode>
+    <React.StrictMode>
+        <Provider store={store}>
+            <HelmetProvider>
+                <App />
+                <GlobalStyle />
+                <ToastContainer />
+            </HelmetProvider>
+        </Provider>
+    </React.StrictMode>
 );

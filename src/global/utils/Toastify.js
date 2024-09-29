@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // Snackbar thông báo thành công
 const notifySuccess = message =>
     toast.success(message, {
-        position: 'top-left',
+        position: 'bottom-left',
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -16,7 +16,7 @@ const notifySuccess = message =>
 // Snackbar thông báo lỗi
 const notifyError = message =>
     toast.error(message, {
-        position: 'top-left',
+        position: 'bottom-left',
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -26,7 +26,7 @@ const notifyError = message =>
     });
 
 <ToastContainer
-    position="top-left"
+    position="bottom-left"
     autoClose={3000}
     hideProgressBar={false}
     newestOnTop={false}

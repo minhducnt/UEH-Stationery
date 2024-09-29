@@ -1,7 +1,7 @@
 import React, { Fragment, lazy, Suspense, useLayoutEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
-import { path } from '../global/utils/constants/GlobalPath';
+import { path } from './common/GlobalPath';
 
 //* Layout
 import MainLayout from '../global/layout/MainLayout';

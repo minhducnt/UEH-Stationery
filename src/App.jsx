@@ -4,7 +4,7 @@ import './styles/index.css';
 import './styles/main.css';
 
 const App = () => {
-  return <RoutesComponent />;
+    return <RoutesComponent />;
 };
 
 export default App;

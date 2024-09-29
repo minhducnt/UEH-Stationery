@@ -15,3 +15,16 @@ export const loginSchema = Yup.object({
         .required('Please enter your password.')
         .min(8, 'Password must be 8 characters')
 });
+
+export const registerSchema = Yup.object({
+    fullname: Yup.string().required('Please enter your full name.'),
+    email: Yup.string().required('Please enter your email.').email('Please enter valid email.'),
+    password: Yup.string()
+        .required('Please enter your password.')
+        .min(8, 'Password must be 8 characters'),
+    address: Yup.string().required('Please enter your address.'),
+    phone: Yup.string()
+        .required('Please enter your phone number.')
+        .matches(phoneRegex, 'Please enter valid phone number.'),
+    gender: Yup.string().required('Please select your')
+});
