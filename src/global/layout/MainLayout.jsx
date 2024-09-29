@@ -5,9 +5,9 @@ import Footer from './common/Footer';
 import Header from './common/Header';
 
 const StyledMainLayout = styled.div`
-	main {
-		min-height: 100vh;
-	}
+    main {
+        min-height: 100vh;
+    }
 `;
 
 const MainLayout = () => {

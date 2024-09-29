@@ -10,11 +10,13 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 import FooterLogo from '../../../assets/imgs/Footer.png';
 
+import { path } from '../../utils/constants/GlobalPath';
+
 const StyledFooter = styled.footer`
     .footer-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px 80px;
+        grid-gap: 10px 60px;
     }
 
     .footer-item {
@@ -24,11 +26,15 @@ const StyledFooter = styled.footer`
             color: white;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
-        p {
+        p,
+        a {
             font-size: 28px;
-            padding: 6px 0;
             color: white;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        a: hover {
+            color: #f26f33;
         }
     }
     .footer-item:first-child {
@@ -38,8 +44,8 @@ const StyledFooter = styled.footer`
             margin: 0 0 5px;
             font-weight: bold;
             position: relative;
-            text-shadow: -1px -1px 0 #ff7f50, 1px -1px 0 #ff7f50, -1px 1px 0 #ff7f50, 1px 1px 0 #ff7f50,
-                2px 2px 5px rgba(0, 0, 0, 0.2);
+            text-shadow: -1px -1px 0 #ff7f50, 1px -1px 0 #ff7f50, -1px 1px 0 #ff7f50,
+                1px 1px 0 #ff7f50, 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
         p {
             padding: 0;
@@ -70,29 +76,12 @@ const StyledFooter = styled.footer`
         width: 80px;
         height: 80px;
     }
-
-    @media screen and (max-width: 1023.98px) {
-        .footer-list {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    @media screen and (max-width: 767.98px) {
-        .footer-list {
-            grid-template-columns: repeat(1, 1fr);
-        }
-        .footer-bottom {
-            flex-direction: column;
-        }
-        .footer-item p {
-            font-size: 1.4rem;
-        }
-    }
 `;
 
 const footerNav = [
     {
         title: 'UEH STATIONERY',
-        path: ['ueh.edu.vn', 'B1.111 – 279 Nguyễn Tri Phương Quận 10)'],
+        path: ['ueh.edu.vn', 'B1.111 – 279 Đ. Nguyễn Tri Phương, Phường 5, Quận 10, Hồ Chí Minh'],
         icon: [
             <AlternateEmailIcon
                 sx={{
@@ -175,7 +164,7 @@ const Footer = () => {
                             />
                             <div className="footer-section">
                                 <div className="footer-item-with-icon">
-                                    <p>{footerNav[1].path[0]}</p>
+                                    <a href={path.contact}>{footerNav[1].path[0]}</a>
                                 </div>
                                 <Divider
                                     sx={{
@@ -187,7 +176,7 @@ const Footer = () => {
                                     }}
                                 />
                                 <div className="footer-item-with-icon">
-                                    <p>{footerNav[1].path[1]}</p>
+                                    <a href={path.contact}>{footerNav[1].path[1]}</a>
                                 </div>
                                 <Divider
                                     sx={{
@@ -199,7 +188,7 @@ const Footer = () => {
                                     }}
                                 />
                                 <div className="footer-item-with-icon">
-                                    <p>{footerNav[1].path[2]}</p>
+                                    <a href={path.contact}>{footerNav[1].path[2]}</a>
                                 </div>
                             </div>
                         </div>

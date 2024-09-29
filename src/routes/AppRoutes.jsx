@@ -1,7 +1,7 @@
 import React, { Fragment, lazy, Suspense, useLayoutEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
-import { path } from "../global/utils/constants/GlobalPath";
+import { path } from '../global/utils/constants/GlobalPath';
 
 //* Layout
 import MainLayout from '../global/layout/MainLayout';
@@ -10,6 +10,8 @@ import BackToTop from '../global/libraries/BackToTop';
 //* Pages
 // Authentication
 const SignIn = lazy(() => import('../pages/auth/SignInPage'));
+const SignUp = lazy(() => import('../pages/auth/SignUpPage'));
+const ForgotPassword = lazy(() => import('../pages/auth/ForgotPasswordPage'));
 
 // Home
 const Home = lazy(() => import('../pages/home/HomePage'));
@@ -27,6 +29,8 @@ const RoutesComponent = () => {
                             <Route element={<MainLayout />}>
                                 <Route path={path.home} element={<Home />} />
                                 <Route path={path.signIn} element={<SignIn />} />
+                                <Route path={path.signUp} element={<SignUp />} />
+                                <Route path={path.forgotPassword} element={<ForgotPassword />} />
                                 <Route path={path.notFound} element={<NotFound />} />
                             </Route>
                         </Routes>
@@ -34,7 +38,7 @@ const RoutesComponent = () => {
                 </Router>
             </Suspense>
             <BackToTop />
-        </Fragment >
+        </Fragment>
     );
 };
 

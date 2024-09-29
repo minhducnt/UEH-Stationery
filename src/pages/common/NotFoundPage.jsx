@@ -1,37 +1,57 @@
+import styled from 'styled-components';
+
 import { useNavigate } from 'react-router-dom';
 
+import { Box, Container, Typography } from '@mui/material';
 import Button from '../../global/components/buttons/Button';
 import MetaData from '../../global/components/dialogs/MetaData';
 
 import { path } from '../../global/utils/constants/GlobalPath';
 
+const CenteredContainer = styled(Container)({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    height: '100vh'
+});
+
+const StyledBox = styled(Box)({
+    backgroundRepeat: 'no-repeat',
+    backgroundImage: 'url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif)',
+    minWidth: '100vh',
+    height: '350px',
+    backgroundPosition: 'center'
+});
+
+const StyledHeading = styled(Typography)({
+    fontSize: '80px'
+});
+
 const NotFoundPage = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  return (
-    <>
-      <MetaData title="404"></MetaData>
+    return (
+        <>
+            <MetaData title="404"></MetaData>
 
-      <div className="flex flex-col my-[120px] items-center gap-5">
-        <h1 className="text-[150px] font-bold">404</h1>
+            <CenteredContainer>
+                <Box display="flex" flexDirection="column" alignItems="center" gap="30px">
+                    <StyledHeading variant="h1">404</StyledHeading>
 
-        <div className="flex flex-col items-center">
-          <h5 className="text-xl font-semibold">
-            Woops, có vẻ như trang này không tồn tại
-          </h5>
-          <h6>Bạn có thể trở về hoặc về trang chủ</h6>
-        </div>
+                    <StyledBox />
 
-        <Button
-          bgColor="bg-black"
-          className="text-white w-[200px]"
-          onClick={() => navigate(path.home)}
-        >
-          Trở về
-        </Button>
-      </div>
-    </>
-  );
+                    <Typography variant="h3" className="h3">
+                        Woops, có vẻ như trang này không tồn tại
+                    </Typography>
+
+                    <Button onClick={() => navigate(path.home)} kind="primary">
+                        Trở về
+                    </Button>
+                </Box>
+            </CenteredContainer>
+        </>
+    );
 };
 
 export default NotFoundPage;
