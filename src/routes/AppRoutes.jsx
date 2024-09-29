@@ -16,6 +16,7 @@ const ForgotPassword = lazy(() => import('../pages/auth/ForgotPasswordPage'));
 
 // Home
 const Home = lazy(() => import('../pages/home/HomePage'));
+const About = lazy(() => import('../pages/home/AboutPage'));
 
 // Common
 const NotFound = lazy(() => import('../pages/common/NotFoundPage'));
@@ -32,6 +33,7 @@ const RoutesComponent = () => {
                                 <Route path={path.signIn} element={<SignIn />} />
                                 <Route path={path.signUp} element={<SignUp />} />
                                 <Route path={path.forgotPassword} element={<ForgotPassword />} />
+                                <Route path={path.about} element={<About />} />
                                 <Route path={path.notFound} element={<NotFound />} />
                             </Route>
                         </Routes>
