@@ -8,8 +8,6 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FooterLogo from '../../../assets/imgs/Footer.png';
 
-import { path } from '../../../routes/common/GlobalPath';
-
 const StyledFooter = styled.footer`
     .footer-list {
         display: grid;
@@ -155,7 +153,7 @@ const Footer = () => {
                             />
                             <div className="footer-section">
                                 <div className="footer-item-with-icon">
-                                    <a href={path.contact}>{footerNav[1].path[0]}</a>
+                                    <a href="/about#huong-dan-mua-hang">{footerNav[1].path[0]}</a>
                                 </div>
                                 <Divider
                                     sx={{
@@ -167,7 +165,7 @@ const Footer = () => {
                                     }}
                                 />
                                 <div className="footer-item-with-icon">
-                                    <a href={path.contact}>{footerNav[1].path[1]}</a>
+                                    <a href="/about#chinh-sach-doi-tra">{footerNav[1].path[1]}</a>
                                 </div>
                                 <Divider
                                     sx={{
@@ -179,7 +177,7 @@ const Footer = () => {
                                     }}
                                 />
                                 <div className="footer-item-with-icon">
-                                    <a href={path.contact}>{footerNav[1].path[2]}</a>
+                                    <a href="/about#chinh-sach-bao-mat">{footerNav[1].path[2]}</a>
                                 </div>
                             </div>
                         </div>
