@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 
 import '../../../styles/phone.css';
@@ -35,7 +34,9 @@ const PhoneButton = () => {
             onMouseLeave={() => setIsHovered(false)}
         >
             <span className="phone-number">8900-4657</span>
-            <PhoneEnabledIcon className="phone-icon" />
+            <div className="phone-icon-container">
+                <PhoneEnabledIcon className="phone-icon" />
+            </div>
         </div>
     );
 };
