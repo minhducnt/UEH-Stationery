@@ -7,12 +7,13 @@ import Grid from '@mui/material/Grid2';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FooterLogo from '../../../assets/imgs/Footer.png';
+import PhoneButton from '../../components/buttons/PhoneButton';
 
 const StyledFooter = styled.footer`
     .footer-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px 60px;
+        grid-gap: 10px auto;
     }
 
     .footer-item {
@@ -182,6 +183,8 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
+
+                    <PhoneButton />
                 </Grid>
             </Box>
         </StyledFooter>

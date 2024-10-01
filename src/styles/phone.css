@@ -1,0 +1,50 @@
+.footer-float-btn {
+    position: fixed;
+    width: 40px; 
+    height: 40px;
+    bottom: 100px;
+    right: 42px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: width 0.25s ease-in-out; 
+    overflow: hidden; 
+    padding: 0 10px;
+}
+
+.footer-float-btn.show {
+    display: flex;
+}
+
+.footer-float-btn.hovered {
+    width: 140px;
+    border-radius: 25px; 
+}
+
+.phone-icon {
+    background-color: #f44336; 
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-number {
+    color: white;
+    font-size: 16px;
+    margin-left: 10px; 
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    white-space: nowrap;
+}
+
+.footer-float-btn.hovered .phone-number {
+    opacity: 1;
+}
