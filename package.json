@@ -39,11 +39,12 @@
     "sequelize": "^6.37.3",
     "sequelize-auto": "^0.8.8",
     "styled-components": "^6.1.13",
+    "swiper": "^11.1.14",
     "yup": "^1.4.0"
   },
   "devDependencies": {
-    "eslint": "^8.57.1",
     "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
     "postcss": "^8.4.47"
   },
   "scripts": {

@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import Cookies from 'js-cookie';
 import queryString from 'query-string';
 
-import { Helper } from '../../global/utils/helpers/Misc';
+import { Helper } from '../../global/utils/helpers/misc';
 import { path } from '../../routes/common/GlobalPath';
 
 // Tạo một đối tượng restClient sử dụng createApi

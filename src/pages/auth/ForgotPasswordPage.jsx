@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { withErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
-import { TextField, Typography, Box } from '@mui/material';
+import { TextField, Typography, Box, InputAdornment, Container } from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 import Button from '../../global/components/buttons/Button';
 import MetaData from '../../global/components/common/MetaData';
@@ -13,13 +15,14 @@ import { notifySuccess, notifyError } from '../../global/utils/Toastify';
 import { loginSchema } from '../../global/utils/validators/validator';
 
 // Styled Components
-const Container = styled.div`
+const StyledContainer = styled(Container)`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     flex-direction: column;
+    padding: 40px;
 
     .text-red-600 {
         color: #f44336;
@@ -48,8 +51,7 @@ const Title = styled(Typography)`
         margin-bottom: 56px;
         padding: 24px;
         text-transform: uppercase;
-        text-shadow: -1px -1px 0 #226b68, 1px -1px 0 #226b68, -1px 1px 0 #226b68,
-            1px 1px 0 #226b68;
+        text-shadow: -1px -1px 0 #226b68, 1px -1px 0 #226b68, -1px 1px 0 #226b68, 1px 1px 0 #226b68;
     }
 `;
 
@@ -121,8 +123,7 @@ const CustomButton = styled(Button)`
         margin: 0.25rem 60px;
         border-radius: 0;
         text-transform: uppercase;
-        text-shadow: -0.5px -0.5px 0 #005f69, 0.5px -0.5px 0 #005f69,
-            -0.5px 0.5px 0 #005f69, 0.5px 0.5px 0 #005f69;
+        text-shadow: -0.5px -0.5px 0 #005f69, 0.5px -0.5px 0 #005f69, -0.5px 0.5px 0 #005f69, 0.5px 0.5px 0 #005f69;
 
         &:hover {
             background-color: #ff6a1c;
@@ -131,16 +132,19 @@ const CustomButton = styled(Button)`
 `;
 
 const ForgotPasswordPage = () => {
+    const [show, setShow] = useState(false);
     const {
         register,
         handleSubmit,
         reset,
         setFocus,
+        getValues,
         formState: { errors }
     } = useForm({
         defaultValues: {
             email: '',
-            password: ''
+            password: '',
+            confirmPassword: ''
         },
         resolver: yupResolver(loginSchema),
         mode: 'onChange'
@@ -149,9 +153,7 @@ const ForgotPasswordPage = () => {
     const dispatch = useDispatch();
     const location = useLocation();
 
-    const { isAuthenticated, loading, error, user } = useSelector(
-        state => state.auth
-    );
+    const { isAuthenticated, loading, error, user } = useSelector(state => state.auth);
     const navigate = useNavigate();
 
     const handleLogin = data => {
@@ -177,16 +179,7 @@ const ForgotPasswordPage = () => {
             notifyError(error);
             reset();
         }
-    }, [
-        error,
-        isAuthenticated,
-        dispatch,
-        navigate,
-        reset,
-        setFocus,
-        user.role,
-        redirect
-    ]);
+    }, [error, isAuthenticated, dispatch, navigate, reset, setFocus, user.role, redirect]);
 
     useEffect(() => {
         setFocus('email');
@@ -194,59 +187,86 @@ const ForgotPasswordPage = () => {
 
     return (
         <>
-            <MetaData title='Quên mật khẩu'></MetaData>
+            <MetaData title="Quên mật khẩu"></MetaData>
 
-            <Container>
-                <Title variant='h5'>Quên Mật Khẩu</Title>
+            <StyledContainer>
+                <Title variant="h5">Quên Mật Khẩu</Title>
 
-                <form onSubmit={handleSubmit(handleLogin)} autoComplete='off'>
+                <form onSubmit={handleSubmit(handleLogin)} autoComplete="off">
                     <FormWrapper>
                         <FieldTitle>
-                            Địa chỉ email{' '}
-                            <span className='text-red-600'>*</span>
+                            Địa chỉ email <span className="text-red-600">*</span>
+                        </FieldTitle>
+                        <CustomTextField fullWidth type="email" {...register('email')} variant="outlined" placeholder="Email" required />
+                        {errors?.email && <div className="text-red-500">{errors.email?.message}</div>}
+
+                        <FieldTitle>
+                            Mật khẩu <span className="text-red-600">*</span>
                         </FieldTitle>
                         <CustomTextField
                             fullWidth
-                            type='email'
-                            {...register('email')}
-                            variant='outlined'
-                            placeholder='Email'
+                            variant="outlined"
+                            type={show ? 'text' : 'password'}
+                            {...register('password')}
+                            placeholder="Password"
                             required
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        {getValues('password') &&
+                                            (!show ? (
+                                                <VisibilityIcon className="password-eye" onClick={() => setShow(prev => !prev)} />
+                                            ) : (
+                                                <VisibilityOffIcon className="password-eye" onClick={() => setShow(prev => !prev)} />
+                                            ))}
+                                    </InputAdornment>
+                                )
+                            }}
                         />
-                        {errors?.email && (
-                            <div className='text-red-500'>
-                                {errors.email?.message}
-                            </div>
-                        )}
+                        {errors?.password && <div className="text-red-500">{errors.password?.message}</div>}
+
+                        <FieldTitle>
+                            Nhập lại mật khẩu mới <span className="text-red-600">*</span>
+                        </FieldTitle>
+                        <CustomTextField
+                            fullWidth
+                            variant="outlined"
+                            type={show ? 'text' : 'password'}
+                            {...register('password')}
+                            placeholder="Password"
+                            required
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        {getValues('password') &&
+                                            (!show ? (
+                                                <VisibilityIcon className="password-eye" onClick={() => setShow(prev => !prev)} />
+                                            ) : (
+                                                <VisibilityOffIcon className="password-eye" onClick={() => setShow(prev => !prev)} />
+                                            ))}
+                                    </InputAdornment>
+                                )
+                            }}
+                        />
+                        {errors?.password && <div className="text-red-500">{errors.password?.message}</div>}
 
                         <ButtonWrapper>
-                            <CustomButton
-                                variant='contained'
-                                type='submit'
-                                disabled={loading ? true : false}
-                            >
+                            <CustomButton variant="contained" type="submit" disabled={loading ? true : false}>
                                 Lấy Lại Mật Khẩu
                             </CustomButton>
-                            <CustomButton
-                                variant='contained'
-                                onClick={() => navigate(-1)}
-                            >
+                            <CustomButton variant="contained" onClick={() => navigate(-1)}>
                                 Trở Lại
                             </CustomButton>
                         </ButtonWrapper>
                     </FormWrapper>
                 </form>
-            </Container>
+            </StyledContainer>
         </>
     );
 };
 
 const FallbackComponent = () => {
-    return (
-        <p className='text-red-400 bg-red-50'>
-            Something went wrong with this Component
-        </p>
-    );
+    return <p className="text-red-400 bg-red-50">Something went wrong with this Component</p>;
 };
 
 export default withErrorBoundary(ForgotPasswordPage, FallbackComponent);

@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { withErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
-import { TextField, Typography, Box, Link, InputAdornment } from '@mui/material';
+import { TextField, Typography, Box, Link, InputAdornment, Container } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
@@ -17,13 +17,14 @@ import { path } from '../../routes/common/GlobalPath';
 import { signIn } from '../../redux/thunks/AuthThunk';
 
 // Styled Components
-const Container = styled.div`
+const StyledContainer = styled(Container)`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     flex-direction: column;
+    padding: 40px;
 
     .text-red-600 {
         color: #f44336;
@@ -196,15 +197,11 @@ const SignInPage = () => {
         }
     }, [error, isAuthenticated, dispatch, navigate, reset, setFocus, user.role, redirect]);
 
-    useEffect(() => {
-        setFocus('email');
-    }, [setFocus]);
-
     return (
         <>
             <MetaData title="Đăng nhập"></MetaData>
 
-            <Container>
+            <StyledContainer>
                 <Title variant="h5">Đăng Nhập Tài Khoản</Title>
 
                 <form onSubmit={handleSubmit(handleLogin)} autoComplete="off">
@@ -252,7 +249,7 @@ const SignInPage = () => {
                         </ButtonWrapper>
                     </FormWrapper>
                 </form>
-            </Container>
+            </StyledContainer>
         </>
     );
 };
