@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Container, Image, Row, Col } from 'react-bootstrap';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { MdAlternateEmail, MdLocationOn } from 'react-icons/md';
 
@@ -11,35 +11,23 @@ import FooterLogo from '../../../assets/imgs/parts/FooterLogo.png';
 
 import { path } from '../../../routes/common/GlobalPath';
 
-const SFooter = styled.footer`
-    .footer-link {
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    }
-    .footer-link:hover {
-        color: #f26f33;
+const STopFooter = styled(Container)`
+    max-width: 100%;
+
+    .footer-images {
+        height: 528px;
+        object-fit: 'cover';
+        padding: 0;
     }
 
-    .footer-bottom {
-        max-height: auto;
-        background-color: #005f6b;
-        color: #fff;
-        padding: '20px';
-    }
-
-    .footer-icon {
-        font-size: 22px;
-        margin-right: 4px;
-    }
-
-    .footer-top-divider {
+    .footer-top-divider-top {
         border-bottom-width: 4px;
         background-color: orange;
-        width: 100%;
         margin-bottom: 84px;
-        height: 4px;
+        height: 6px;
     }
 
-    .footer-bottom-divider {
+    .footer-top-divider-bottom {
         border-bottom-width: 2px;
         background-color: #79747e;
         width: 80%;
@@ -47,16 +35,35 @@ const SFooter = styled.footer`
         opacity: 0.5;
         height: 2px;
     }
+`;
 
-    .footer-divider-main {
+const SBottomFooter = styled(Container)`
+    max-height: auto;
+    max-width: 100%;
+    background-color: #005f6b;
+    color: #fff;
+    padding: 20px;
+
+    .footer-link {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    }
+    .footer-link:hover {
+        color: #f26f33;
+    }
+
+    .footer-icon {
+        font-size: 22px;
+        margin-right: 4px;
+    }
+
+    .footer-divider-top {
         border-bottom-width: 2px;
         background-color: gray;
         width: 80px;
         margin: 8px 0 8px 16px;
         height: 3px;
     }
-
-    .footer-divider-child {
+    .footer-divider-bottom {
         border-bottom-width: 2px;
         background-color: #f26f33;
         width: 160px;
@@ -67,34 +74,44 @@ const SFooter = styled.footer`
 
 const Footer = () => {
     return (
-        <SFooter>
-            <Container fluid>
+        <footer style={{
+            color: 'red',
+            padding: 0,
+            margin: 0
+        }}>
+            <STopFooter>
                 <Row>
                     <Col>
-                        <div className="footer-top-divider" style={{ width: '100%' }} />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Image
-                            src={FooterBanner}
-                            alt="UEH University"
-                            className="footer-images"
-                            style={{ width: '100%', height: '528px' }}
+                        <div
+                            className='footer-top-divider-top'
+
                         />
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <div className="footer-bottom-divider" style={{ width: '100%' }} />
+                        <Image src={FooterBanner} alt="UEH University"
+                            style={{
+                                width: '100%',
+                                height: '528px',
+                                objectFit: 'cover',
+                                padding: 0
+                            }} />
                     </Col>
                 </Row>
-            </Container>
+                <Row>
+                    <Col>
+                        <div
+                            className='footer-top-divider-bottom'
+                        />
+                    </Col>
+                </Row>
+            </STopFooter>
 
-            <Container fluid className="footer-bottom text-white py-4">
+            <SBottomFooter className="py-4">
                 <Row className="py-3">
                     <Col md={6} lg={6} className="my-0">
-                        <Image src={FooterLogo} alt="" width={400} className="mt-3" />
+                        <Image src={FooterLogo} alt="UEH STATIONERY" width={400} className="mt-3" />
                         <p className="text-md text-color-white mt-3 mx-3">
                             <MdAlternateEmail className="footer-icon" /> ueh.edu.vn
                         </p>
@@ -105,7 +122,7 @@ const Footer = () => {
 
                     <Col md={6} lg={3} className="my-0">
                         <p className="text-display-lg-bold-32 text-color-white mb-2">Chính sách</p>
-                        <div className="footer-divider-main mb-4" />
+                        <div className="footer-divider-top mb-4" />
 
                         <ul className="mx-2">
                             <li className="mx-2 mb-2">
@@ -114,14 +131,14 @@ const Footer = () => {
                                 </Link>
                             </li>
 
-                            <div className="footer-divider-child" />
+                            <div className="footer-divider-bottom" />
                             <li className="mx-2 mb-2">
                                 <Link to={`${path.about}#chinh-sach-doi-tra`} className="text-link-lg-18 text-white footer-link">
                                     Chính sách đổi trả
                                 </Link>
                             </li>
 
-                            <div className="footer-divider-child" />
+                            <div className="footer-divider-bottom" />
                             <li className="mx-2 mb-2">
                                 <Link to={`${path.about}#chinh-sach-bao-mat`} className="text-link-lg-18 text-white footer-link">
                                     Chính sách bảo mật
@@ -130,8 +147,8 @@ const Footer = () => {
                         </ul>
                     </Col>
                 </Row>
-            </Container>
-        </SFooter>
+            </SBottomFooter>
+        </footer>
     );
 };
 

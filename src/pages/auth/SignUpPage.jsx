@@ -12,7 +12,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Button from '../../global/components/buttons/Button';
 import MetaData from '../../global/components/common/MetaData';
 import { notifySuccess, notifyError } from '../../global/utils/Toastify';
-import { loginSchema } from '../../global/utils/validators/validator';
+import { loginSchema } from '../../global/utils/validators/validatorr';
 import { path } from '../../routes/common/GlobalPath';
 import { signUp } from '../../redux/thunks/AuthThunk';
 
@@ -287,7 +287,7 @@ const SignUpPage = () => {
                                     <Radio
                                         sx={{
                                             '& .MuiSvgIcon-root': {
-                                                marginLeft: "24px",
+                                                marginLeft: '24px',
                                                 fontSize: '24px',
                                                 color: '#ff6a1c'
                                             }
@@ -302,7 +302,7 @@ const SignUpPage = () => {
                                     <Radio
                                         sx={{
                                             '& .MuiSvgIcon-root': {
-                                                marginLeft: "24px",
+                                                marginLeft: '24px',
                                                 fontSize: '24px',
                                                 color: '#ff6a1c'
                                             }

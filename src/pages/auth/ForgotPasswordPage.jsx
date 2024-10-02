@@ -12,7 +12,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Button from '../../global/components/buttons/Button';
 import MetaData from '../../global/components/common/MetaData';
 import { notifySuccess, notifyError } from '../../global/utils/Toastify';
-import { loginSchema } from '../../global/utils/validators/validator';
+import { loginSchema } from '../../global/utils/validators/validatorr';
 
 // Styled Components
 const StyledContainer = styled(Container)`
