@@ -31,6 +31,23 @@ const SFooter = styled.footer`
         margin-right: 4px;
     }
 
+    .footer-top-divider {
+        border-bottom-width: 4px;
+        background-color: orange;
+        width: 100%;
+        margin-bottom: 84px;
+        height: 4px;
+    }
+
+    .footer-bottom-divider {
+        border-bottom-width: 2px;
+        background-color: #79747e;
+        width: 80%;
+        margin: 57px auto;
+        opacity: 0.5;
+        height: 2px;
+    }
+
     .footer-divider-main {
         border-bottom-width: 2px;
         background-color: gray;
@@ -51,6 +68,29 @@ const SFooter = styled.footer`
 const Footer = () => {
     return (
         <SFooter>
+            <Container fluid>
+                <Row>
+                    <Col>
+                        <div className="footer-top-divider" style={{ width: '100%' }} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Image
+                            src={FooterBanner}
+                            alt="UEH University"
+                            className="footer-images"
+                            style={{ width: '100%', height: '528px' }}
+                        />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <div className="footer-bottom-divider" style={{ width: '100%' }} />
+                    </Col>
+                </Row>
+            </Container>
+
             <Container fluid className="footer-bottom text-white py-4">
                 <Row className="py-3">
                     <Col md={6} lg={6} className="my-0">
