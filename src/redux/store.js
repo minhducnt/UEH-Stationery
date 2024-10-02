@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit'; // Import hàm configureStore từ redux toolkit
-import { composeWithDevTools } from '@redux-devtools/extension'; // Import hàm composeWithDevTools từ redux-devtools
-import { thunk } from 'redux-thunk'; // Import middleware thunk từ redux-thunk
+import { configureStore } from '@reduxjs/toolkit';
+import { composeWithDevTools } from '@redux-devtools/extension';
+import { thunk } from 'redux-thunk';
 
 import restClient from '../redux/apis/RestClient'; // Import đối tượng restClient từ file RestClient
 import authSliceReducer from './slices/auth/AuthSlice'; // Import reducer authSliceReducer từ file AuthSlice

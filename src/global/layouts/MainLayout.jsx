@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 
-import Footer from './common/Footer';
-import Header from './common/Header';
+import Footer from '../components/parts/Footer';
+import Header from '../components/parts/Header';
 
-const StyledMainLayout = styled.div`
+const SMainLayout = styled.div`
     main {
         min-height: 100vh;
         padding: 0 20px;
@@ -13,13 +13,13 @@ const StyledMainLayout = styled.div`
 
 const MainLayout = () => {
     return (
-        <StyledMainLayout>
+        <SMainLayout>
             <Header />
             <main>
                 <Outlet />
             </main>
             <Footer />
-        </StyledMainLayout>
+        </SMainLayout>
     );
 };
 

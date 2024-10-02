@@ -5,7 +5,7 @@ import { path } from './common/GlobalPath';
 import AppWrapper from '../global/components/common/Wrapper';
 
 //* Layout
-import MainLayout from '../global/layout/MainLayout';
+import MainLayout from '../global/layouts/MainLayout';
 import BackToTop from '../global/libraries/BackToTop';
 
 //* Pages
