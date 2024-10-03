@@ -5,16 +5,16 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { withErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
-import { TextField, Typography, Box, Link, InputAdornment, Container } from '@mui/material';
+import { TextField, Typography, Box, InputAdornment, Radio, RadioGroup, FormControlLabel, Container } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 import Button from '../../global/components/buttons/Button';
 import MetaData from '../../global/components/common/MetaData';
 import { notifySuccess, notifyError } from '../../global/utils/Toastify';
-import { loginSchema } from '../../global/utils/validators/validatorr';
+import { loginSchema } from '../../global/utils/validators/Validator';
 import { path } from '../../routes/common/GlobalPath';
-import { signIn } from '../../redux/thunks/AuthThunk';
+import { signUp } from '../../redux/thunks/AuthThunk';
 
 // Styled Components
 const StyledContainer = styled(Container)`
@@ -98,25 +98,18 @@ const CustomTextField = styled(TextField)`
 
 const FieldTitle = styled(Typography)`
     && {
-        margin-bottom: 0.5rem;
+        margin-top: 4px;
+        margin-bottom: 4px;
         font-size: 16px;
         color: #333;
         font-weight: bold;
     }
 `;
-
-const CustomLink = styled(Link)`
-    && {
-        display: block;
-        margin-top: 0.5rem;
-        text-align: right;
-        color: #666;
-        font-size: 1.6rem;
-        cursor: pointer;
-        &:hover {
-            color: var(--primary-color);
-        }
-        text-decoration: none;
+const RadioFieldTitle = styled(FormControlLabel)`
+    .MuiFormControlLabel-label {
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
     }
 `;
 
@@ -136,8 +129,8 @@ const CustomButton = styled(Button)`
         font-size: 2.4rem;
         font-weight: 700;
         font-family: 'Anton SC';
-        padding: 0.5rem 1rem;
-        margin: 0.25rem 60px;
+        padding: 0 1rem;
+        margin: 0 60px;
         border-radius: 0;
         text-transform: uppercase;
         text-shadow: -0.5px -0.5px 0 #005f69, 0.5px -0.5px 0 #005f69, -0.5px 0.5px 0 #005f69, 0.5px 0.5px 0 #005f69;
@@ -148,7 +141,7 @@ const CustomButton = styled(Button)`
     }
 `;
 
-const SignInPage = () => {
+const SignUpPage = () => {
     const [show, setShow] = useState(false);
     const {
         register,
@@ -159,12 +152,22 @@ const SignInPage = () => {
         formState: { errors }
     } = useForm({
         defaultValues: {
+            fullName: '',
             email: '',
-            password: ''
+            password: '',
+            address: '',
+            phoneNumber: '',
+            gender: ''
         },
         resolver: yupResolver(loginSchema),
         mode: 'onChange'
     });
+
+    const [value, setValue] = useState('female');
+
+    const handleChange = event => {
+        setValue(event.target.value);
+    };
 
     const dispatch = useDispatch();
     const location = useLocation();
@@ -174,7 +177,7 @@ const SignInPage = () => {
 
     const handleLogin = data => {
         const { email, password } = data;
-        dispatch(signIn(email, password));
+        dispatch(signUp(email, password));
     };
 
     const redirect = location.search ? location.search.split('=')[1] : '/home';
@@ -187,7 +190,7 @@ const SignInPage = () => {
                 navigate('/admin/dashboard');
             }
             reset();
-            notifySuccess('Đăng nhập thành công!');
+            notifySuccess('Login successfully!');
         }
 
         if (error) {
@@ -199,13 +202,26 @@ const SignInPage = () => {
 
     return (
         <>
-            <MetaData title="Đăng nhập"></MetaData>
+            <MetaData title="Đăng ký"></MetaData>
 
             <StyledContainer>
-                <Title variant="h5">Đăng Nhập Tài Khoản</Title>
+                <Title variant="h5">Đăng Ký Tài Khoản</Title>
 
                 <form onSubmit={handleSubmit(handleLogin)} autoComplete="off">
                     <FormWrapper>
+                        <FieldTitle>
+                            Họ và tên <span className="text-red-600">*</span>
+                        </FieldTitle>
+                        <CustomTextField
+                            fullWidth
+                            type="fullName"
+                            {...register('fullName')}
+                            variant="outlined"
+                            placeholder="FullName"
+                            required
+                        />
+                        {errors?.fullName && <div className="text-red-500">{errors.fullName?.message}</div>}
+
                         <FieldTitle>
                             Địa chỉ email <span className="text-red-600">*</span>
                         </FieldTitle>
@@ -237,7 +253,65 @@ const SignInPage = () => {
                         />
                         {errors?.password && <div className="text-red-500">{errors.password?.message}</div>}
 
-                        <CustomLink href={path.forgotPassword}>Quên mật khẩu?</CustomLink>
+                        <FieldTitle>
+                            Địa chỉ nhà <span className="text-red-600">*</span>
+                        </FieldTitle>
+                        <CustomTextField
+                            fullWidth
+                            type="address"
+                            {...register('address')}
+                            variant="outlined"
+                            placeholder="Số nhà/tên đường/xã-phường/huyện/quận/thành phố"
+                            required
+                        />
+                        {errors?.address && <div className="text-red-500">{errors.address?.message}</div>}
+
+                        <FieldTitle>
+                            Số điện thoại <span className="text-red-600">*</span>
+                        </FieldTitle>
+                        <CustomTextField
+                            fullWidth
+                            type="phoneNumber"
+                            {...register('phoneNumber')}
+                            variant="outlined"
+                            placeholder="Số điện thoại di dộng"
+                            required
+                        />
+                        {errors?.phoneNumber && <div className="text-red-500">{errors.phoneNumber?.message}</div>}
+
+                        <FieldTitle>Giới tính</FieldTitle>
+                        <RadioGroup name="gender" value={value} onChange={handleChange}>
+                            <RadioFieldTitle
+                                value="female"
+                                control={
+                                    <Radio
+                                        sx={{
+                                            '& .MuiSvgIcon-root': {
+                                                marginLeft: '24px',
+                                                fontSize: '24px',
+                                                color: '#ff6a1c'
+                                            }
+                                        }}
+                                    />
+                                }
+                                label="Nữ"
+                            />
+                            <RadioFieldTitle
+                                value="male"
+                                control={
+                                    <Radio
+                                        sx={{
+                                            '& .MuiSvgIcon-root': {
+                                                marginLeft: '24px',
+                                                fontSize: '24px',
+                                                color: '#ff6a1c'
+                                            }
+                                        }}
+                                    />
+                                }
+                                label="Nam"
+                            />
+                        </RadioGroup>
 
                         <ButtonWrapper>
                             <CustomButton variant="contained" type="submit" disabled={loading ? true : false}>
@@ -258,4 +332,4 @@ const FallbackComponent = () => {
     return <p className="text-red-400 bg-red-50">Something went wrong with this Component</p>;
 };
 
-export default withErrorBoundary(SignInPage, FallbackComponent);
+export default withErrorBoundary(SignUpPage, FallbackComponent);

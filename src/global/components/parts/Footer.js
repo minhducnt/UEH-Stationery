@@ -11,13 +11,16 @@ import FooterLogo from '../../../assets/imgs/parts/FooterLogo.png';
 
 import { path } from '../../../routes/common/GlobalPath';
 
+// Styled component for top footer
 const STopFooter = styled(Container)`
     max-width: 100%;
+    padding: 0; // Ensure no padding on the container
 
     .footer-images {
         height: 528px;
-        object-fit: 'cover';
+        object-fit: cover;
         padding: 0;
+        margin: 0; // Remove margins and paddings in image container
     }
 
     .footer-top-divider-top {
@@ -25,6 +28,7 @@ const STopFooter = styled(Container)`
         background-color: orange;
         margin-bottom: 84px;
         height: 6px;
+        padding: 0; // Remove any padding
     }
 
     .footer-top-divider-bottom {
@@ -34,41 +38,7 @@ const STopFooter = styled(Container)`
         margin: 57px auto;
         opacity: 0.5;
         height: 2px;
-    }
-`;
-
-const SBottomFooter = styled(Container)`
-    max-height: auto;
-    max-width: 100%;
-    background-color: #005f6b;
-    color: #fff;
-    padding: 20px;
-
-    .footer-link {
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    }
-    .footer-link:hover {
-        color: #f26f33;
-    }
-
-    .footer-icon {
-        font-size: 22px;
-        margin-right: 4px;
-    }
-
-    .footer-divider-top {
-        border-bottom-width: 2px;
-        background-color: gray;
-        width: 80px;
-        margin: 8px 0 8px 16px;
-        height: 3px;
-    }
-    .footer-divider-bottom {
-        border-bottom-width: 2px;
-        background-color: #f26f33;
-        width: 160px;
-        margin: 16px 6px;
-        height: 2px;
+        padding: 0;
     }
 `;
 
@@ -76,78 +46,38 @@ const Footer = () => {
     return (
         <footer style={{
             color: 'red',
-            padding: 0,
-            margin: 0
+            padding: 0, // Remove padding in footer
+            margin: 0  // Remove margin in footer
         }}>
-            <STopFooter>
-                <Row>
+            <STopFooter fluid> {/* Use 'fluid' to ensure full-width container */}
+                <Row noGutters> {/* Add 'noGutters' to remove row padding */}
                     <Col>
-                        <div
-                            className='footer-top-divider-top'
-
-                        />
+                        <div className='footer-top-divider-top' />
                     </Col>
                 </Row>
-                <Row>
+                <Row noGutters> {/* Remove padding in Row */}
                     <Col>
-                        <Image src={FooterBanner} alt="UEH University"
+                        <Image
+                            src={FooterBanner}
+                            alt="UEH University"
+                            fluid
+                            className="footer-images" // Make sure to reference the correct class
                             style={{
                                 width: '100%',
                                 height: '528px',
                                 objectFit: 'cover',
-                                padding: 0
-                            }} />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <div
-                            className='footer-top-divider-bottom'
+                                padding: 0, // Remove padding on Image
+                                margin: 0  // Remove margin on Image
+                            }}
                         />
                     </Col>
                 </Row>
-            </STopFooter>
-
-            <SBottomFooter className="py-4">
-                <Row className="py-3">
-                    <Col md={6} lg={6} className="my-0">
-                        <Image src={FooterLogo} alt="UEH STATIONERY" width={400} className="mt-3" />
-                        <p className="text-md text-color-white mt-3 mx-3">
-                            <MdAlternateEmail className="footer-icon" /> ueh.edu.vn
-                        </p>
-                        <p className="text-md text-color-white mt-3 mx-3">
-                            <MdLocationOn className="footer-icon" /> B1.111 – 279 Đ. Nguyễn Tri Phương, Phường 5, Quận 10, Hồ Chí Minh
-                        </p>
-                    </Col>
-
-                    <Col md={6} lg={3} className="my-0">
-                        <p className="text-display-lg-bold-32 text-color-white mb-2">Chính sách</p>
-                        <div className="footer-divider-top mb-4" />
-
-                        <ul className="mx-2">
-                            <li className="mx-2 mb-2">
-                                <Link to={`${path.about}#huong-dan-mua-hang`} className="text-link-lg-18 text-white footer-link">
-                                    Hướng dẫn mua hàng
-                                </Link>
-                            </li>
-
-                            <div className="footer-divider-bottom" />
-                            <li className="mx-2 mb-2">
-                                <Link to={`${path.about}#chinh-sach-doi-tra`} className="text-link-lg-18 text-white footer-link">
-                                    Chính sách đổi trả
-                                </Link>
-                            </li>
-
-                            <div className="footer-divider-bottom" />
-                            <li className="mx-2 mb-2">
-                                <Link to={`${path.about}#chinh-sach-bao-mat`} className="text-link-lg-18 text-white footer-link">
-                                    Chính sách bảo mật
-                                </Link>
-                            </li>
-                        </ul>
+                <Row noGutters> {/* Remove padding in Row */}
+                    <Col>
+                        <div className='footer-top-divider-bottom' />
                     </Col>
                 </Row>
-            </SBottomFooter>
+            </STopFooter>
         </footer>
     );
 };
